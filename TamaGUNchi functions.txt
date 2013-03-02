@@ -1,0 +1,48 @@
+:: continuer
+<<silently>>
+<<if $caca>> <<set $saleté++>> <<endif>>
+
+<<set $link="link loop">>
+<<if $amourEstInit and (Math.random()*5 lt 1)>> <<set $link = "link événement random">> <<endif>>
+<<if $saleté gt 5>> <<set $link = "link malade">> <<endif>>
+<<if $estomac gt 5 and $cacaEstInit>> <<set $link = "link caca">> <<endif>>
+
+<<endsilently>><<display $link>>
+
+
+
+
+:: get amour
+<<silently>> <<if $amour lt 1>> <<set $amour = 1>> <<endif>>
+<<endsilently>><<if $amourEstInit>>Amour: <<print $amour+"">><<endif>>
+
+:: get humeur
+<<silently>> <<if $humeur lt 1>> <<set $humeur = 1>> <<endif>>
+<<if $humeur gt 5>> <<set $humeur = 5>> <<endif>>
+<<endsilently>><<if $humeurEstInit>>Humeur: <<print $humeur+"">>/5<<endif>>
+
+:: get énergie
+<<silently>> <<if $énergie lt 1>> <<set $énergie = 1>> <<endif>>
+<<if $énergie gt 5>> <<set $énergie = 5>> <<endif>>
+<<endsilently>><<if $énergieEstInit>>Énergie: <<print $énergie+"">>/5<<endif>>
+
+:: get faim
+<<silently>> <<if $faim lt 1>> <<set $faim = 1>> <<endif>>
+<<if $faim gt 5>> <<set $faim = 5>> <<endif>>
+<<endsilently>><<if $faimEstInit>>Faim: <<print $faim+"">>/5<<endif>>
+
+:: get caca
+<<if $cacaEstInit and $caca>>Ton fusil a fait caca (et il trempe dedans)  --> [[Nettoyer]] <<endif>>
+
+
+:: get malade
+<<if $malade>>Ton fusil est malade  --> [[Soigner]] <<endif>>
+
+:: get type fusil
+<<silently>>
+<<set $nom = "premier gun BUG_ME">>
+
+<<if $typeFusil eq 1>> <<set $nom = "mitraillette BUG_ME">> <<endif>>
+<<if $typeFusil eq 2>> <<set $nom = "power gun BUG_ME">> <<endif>>
+
+<<endsilently>><<print $nom+"">>

@@ -1,0 +1,63 @@
+:: CSS [stylesheet]
+#snapback { display: none }
+
+
+
+
+
+::MyMacro - Display variable link [script]
+try { 
+	macros['display'].handler = function (a,b,c,d) {
+		try { 
+				new Wikifier(a,tale.get(eval(d.fullArgs())).text) 
+		}
+		catch(e) {
+				new Wikifier(a,tale.get(c[0]).text) 
+		} 
+	}
+}
+catch(e) {
+	throwError(place,"Error in Custom Macros Code!");
+} 
+
+
+
+
+::MyMacros - Silently fix [script]
+try { 
+  macros['silently'].handler = function (place, macroName, params, parser) {
+    console.log('Using a custom silently macro'); 
+    var buffer = insertElement(null, 'div');
+    var srcOffset = parser.source.indexOf('>>', parser.matchStart) + 2;
+    var src = parser.source.slice(srcOffset);
+    var endPos = -1;
+    var silentText = '';
+    var nestDepth = 0;
+
+    for (var i = 0; i < src.length; i++) {
+      if (src.substr(i, 15) == '<<endsilently>>') {
+        if(nestDepth == 0) {
+          endPos = srcOffset + i + 15;
+          break;
+        } else {
+          nestDepth--;
+        }
+      } else if(src.substr(i,12) == '<<silently>>') {
+        nestDepth++;
+      } else {
+        silentText += src.charAt(i);
+      }
+    }
+
+    if (endPos != -1) {
+      new Wikifier(buffer, silentText);
+      parser.nextMatch = endPos;
+    } else {
+      throwError(place, "can't find matching endsilently");
+      delete buffer;
+    }
+  }
+
+} catch(e) { 
+  throwError(place,"Custom Macros Error: "+e.message); 
+}

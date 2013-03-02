@@ -1,0 +1,105 @@
+:: init rencontre random
+<<set $lRencontre = [
+"un oiseau passe",
+"pet"
+]>>
+
+:: init main storyline
+<<set $lMain = [
+"évolution 0 à 1"
+]>>
+
+
+
+::get rencontre random
+<<if $lRencontre.length gt 0>>
+	<<silently>>
+	<<set $index = Math.floor(Math.random() * $lRencontre.length)>>
+	<<set $goto = $lRencontre[$index]>>
+	
+	<<endsilently>><<display $goto>>
+<<else>>
+Hummm....
+
+On aurait dit qu'il allait se passer quelque chose, mais finalement non. Bizarre.
+
+[[Continuer|loop]]
+<<endif>>
+
+
+::get main storyline
+<<if $lMain.length gt 0>>
+	<<silently>>
+	<<set $index = Math.floor(Math.random() * $lMain.length)>>
+	nombre pigé=<<print $index+"">>
+	ce que c'est: <<print $lMain[$index]>>
+	
+	<<set $goto = $lMain[$index]>>
+	<<set $lMain.splice($index,1)>>
+	
+	<<endsilently>><<display $goto>>
+<<else>>
+Il n'y a rien à faire. Ton fusil s'ennuie un peu...
+
+[[Continuer|loop]]
+<<endif>>
+
+
+
+
+:: évolution 0 à 1
+On évolue!!
+<<set $typeFusil = 1>>
+YÉÉÉ!!!
+
+Ton fusil a évolué en <<display "get type fusil">>!!!
+
+Ton fusil utilise maintenant de l'énergie pour fonctionner. Surveille sa réserve d'énergie! :)
+<<set $énergieEstInit = true>><<set $énergie = 5>>
+
+<<display "continuer">>
+
+
+:: un oiseau passe
+Un oiseau passe dans le ciel.
+
+Mais tu ne le tue pas.
+
+[[Continuer|loop]]
+
+
+
+:: pet
+<<if $dejaPet+"" eq "undefined">>
+	<<set $dejaPet = 0>>
+	Ton fusil fait un petit pet.
+	
+	Awww! C'est cute! ^_^
+	
+	<<display "continuer">>
+	
+	<<set $humeur++>>
+<<else>>
+	<<$dejaPet++>>
+<<endif>>
+<<if $dejaPet eq 1>>
+	Ton fusil lâche un pet.
+	
+	Pouah! Celui-là était moins cute!
+	
+	Ouf!
+	
+	<<display "continuer">>
+	<<set $humeur++>>
+<<endif>>
+<<if $dejaPet gte 2 and $dejaPet lte 4>><<display "get événement random">><<endif>>
+<<if $dejaPet eq 5>>
+	Ton fusil lâche une méga bouse.
+	
+	Foutu! Ouvrez les fenêtres!!!
+	
+	Beuhhhh!!
+	
+	<<display "continuer">>
+	<<set $humeur-->>
+<<endif>>

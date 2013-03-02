@@ -1,0 +1,64 @@
+::test
+<<if $dejaPet+"" eq "undefined">>
+Ton fusil fait un petit pet.
+
+Awww! C'est cute! ^_^
+
+<<display "continuer">>
+<<set $dejaPet = true>>
+
+<<else>>
+Ton fusil lâche un pet.
+
+Pouah! Celui-là était moins cute!
+
+Ouf!
+
+<<display "continuer">>
+<<endif>>
+
+
+
+:: crazy tests
+
+
+
+
+
+::test des silently
+<<set $c = 1>>
+Now the value of $c is <<print $c>> (1).
+
+Test single level silently: <<silently>>
+<<if $c = 1>
+<<set $c = $c + 1>>
+<<else>>
+This should not display,
+<<endif>>
+This should not display2
+<<endsilently>>Now the value of $c is <<print $c>> (2). (Should be one line)
+
+Test 2-level nested silently: <<silently>><<silently>>
+<<set $c = $c + 1>>
+
+<<endsilently>>
+<<if $c = 3>>
+<<set $c = $c + 1>>
+<<else>>
+This should not display,
+<<endif>>
+This should not display1 - after first endsilently
+This should not display1 - after first endsilently
+This should not display1 - after first endsilently
+<<endsilently>> Now the value of $c is <<print $c>> (4). (Should be one line)
+
+Let's go a bit nuts with the levels (.(.)(((.))(.))): <<silently>>
+<<set $c = $c + 1>>
+<<silently>><<set $c = $c + 1>><<endsilently>>
+<<silently>><<silently>><<silently>>
+<<set $c = $c + 1>>
+<<endsilently>><<endsilently>>
+<<silently>>
+<<set $c = $c + 1>>
+<<endsilently>><<endsilently>>
+<<endsilently>> Now the value of $c is <<print $c>> (8). (Should be one line)

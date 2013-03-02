@@ -1,0 +1,11 @@
+:: link loop
+[[Continuer|loop]]
+
+:: link caca
+[[Continuer caca|caca]]
+
+:: link malade
+[[Continuer malade|malade]]
+
+:: link événement random
+[[Continuer événement|get rencontre random]]

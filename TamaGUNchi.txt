@@ -1,0 +1,277 @@
+implémenter les foutus événements
+	événements random posts-actions
+	événements à activer manuellement
+
+faire les images de tamagotchi
+
+Balancer les variables
+
+
+:: StoryTitle
+TamaGUNchi
+
+::StorySubtitle [this is not displayed]
+
+::StoryAuthor
+Un jeu de narF
+
+::StoryMenu
+[[loop]]
+[[test]]
+[[raccourci]]
+[[raccourci apprivoisé]]
+[[Reset stats à max-1]]
+[[activer $humeur]]
+
+:: Start
+Tu as 18 ans. Tes parents t'achètent un fusil.
+Longue intro... tu en voulais un depuis longtemps. Etc 
+
+{image de tamagunchi}
+
+[[Tirer la languette du TamaGUNchi|title screen]]
+<<display "init rencontre random">>
+<<display "init main storyline">>
+
+
+
+
+
+
+:: raccourci apprivoisé
+apprivoisé
+<<set $amourEstInit = true>>
+<<set $amour = 2>>
+<<set $faimEstInit = true>>
+<<set $faim = 4>>
+<<set $cacaEstInit = true>>
+<<set $estomac = 1>>
+<<set $saleté = 1>>
+
+::raccourci
+raccourci
+<<set $amourEstInit = true>>
+<<set $amour = 2>>
+
+<<set $faimEstInit = true>>
+<<set $faim = 4>>
+
+<<set $cacaEstInit = true>>
+<<set $estomac = 5>>
+<<set $saleté = 5>>
+
+<<set $énergieEstInit = true>>
+<<set $énergie = 5>>
+
+
+
+:: Reset stats à max-1
+Stats remises à max-1
+
+<<set $faim		= 4>>
+<<set $humeur	= 4>>
+<<set $énergie	= 4>>
+<<set $estomac	= 4>>
+<<set $saleté	= 4>>
+<<set $caca		= true>>
+<<set $malade	= true>>
+[[loop]]
+
+::activer $humeur
+Activation du système d'humeur
+<<set $humeurEstInit = true>><<set $humeur = 5>>
+<<display "continuer">>
+
+
+:: title screen
+Titre en image
+TamaGUNchi
+(sponsorisé par la NRA)
+
+Un jeu de narF
+
+(Autres crédits...)
+
+[[ouvrir la boîte]]
+
+
+
+:: ouvrir la boîte
+Tu sors le fusil de sa boîte. Tu veux l'essayer.
+
+[[Tirer vers le ciel|pas de balles]]
+[[Tirer vers un objet inerte|pas de balles]]
+
+::pas de balles
+Tu vises...
+
+Tu tires...
+
+[[Clic!]]
+
+::Clic!
+Clic! Clic!
+
+Oups! Il n'y a pas de munitions dans ton fusil. Ton fusil a très très faim!
+
+[[Donner à manger au fusil|Manger]]
+<<set $faimEstInit = true>>
+<<set $énergie = 2>>
+<<set $faim = 0>>
+
+
+:: loop
+Ici c'est la loop
+Ton fusil: <<display "get type fusil">>
+
+Stats:
+<<display "get faim">>		<<if $faim lt 5>> --> [[Manger]]<<endif>>
+<<display "get énergie">>	<<if $énergie lt 5 and $énergieEstInit>> --> [[Dormir]]<<endif>>
+<<display "get humeur">>	<<if $humeur lt 5 and $humeurEstInit>> --> [[Jouer]]<<endif>>
+<<display "get caca">>
+<<display "get malade">>
+
+<<display "get amour">>
+
+Debug:
+estomac=<<print $estomac+"">> 
+saleté=<<print $saleté+"">>
+
+[[événement]]
+
+
+[[Attendre un peu]]
+
+
+
+:: événement 
+<<if not $amourEstInit>>
+	Tu n'as pas encore apprivoisé ton fusil.
+	
+	[[Retour|loop]]
+<<else>>
+	<<display "get main storyline">>
+<<endif>>
+
+
+
+
+:: Manger
+<<if $énergie gt 1 or (not $énergieEstInit)>>
+	Ton fusil mange des munitions.
+	
+	Awwww! C'est donc cute un fusil qui mange! <<silently>>
+		<<set $faim++>>
+		<<set $énergie-->>
+		<<set $amour = $amour+$faim>>
+		<<if $cacaEstInit>> <<set $estomac++>> <<endif>>
+	<<endsilently>>
+	<<if $faim gt 2 and not $amourEstInit>>Maintenant que tu l'as nouris, ton fusil t'aime! Tu pourrais lui faire un [[calin]]. <<set $faim = 4>> <<endif>>
+<<else>>
+	Ton fusil est trop fatigué. Il n'a même pas l'énergie pour manger. Il faudrait dormir.
+	[[Dormir]]
+<<endif>>
+
+<<display "continuer">>
+
+
+
+:: calin
+Calin!!! Yéééé! 
+
+Tu as apprivoisé ton fusil!
+
+Maintenant, il va se souvenir de l'amour que tu lui donne.
+<<silently>>
+<<set $amourEstInit = true>> <<set $amour = 2>>
+<<set $cacaEstInit = true>> <<set $estomac = 1>> <<set $saleté = 1>>
+<<endsilently>>
+
+<<display "continuer">>
+
+
+
+:: Attendre un peu
+Tu regardes par la fenêtre...
+
+Après un moment, tu réalises que tu es tombé dans la Lune...
+
+Ce n'est pas grave. Ton fusil s'amuse tout seul en attendant.
+<<silently>>
+<<set $faim-->>
+<<set $humeur-->>
+<<set $énergie-->>
+<<endsilently>>
+Après un moment, tu retournes t'occuper de ton fusil.
+
+<<display "continuer">>
+
+
+:: Jouer
+<<if $énergie gt 1>>
+Tu as joué.
+
+Humeur +1 <<set $humeur++>>
+Énergie -1 <<set $énergie-->>
+Amour +<<print $humeur+"">> <<set $amour = $amour+$humeur>>
+<<else>>
+Ton fusil est trop fatigué pour jouer. Il faudrait [[dormir|Dormir]].
+<<endif>>
+<<display "continuer">>
+
+
+:: Dormir
+Dormir?! Ain't nobody got time for that!!
+Hehehe... non mais sérieux, ton fusil a fait dodo. Good!
+<<silently>>
+<<set $énergie = 5>>
+<<set $faim-->>
+<<set $amour++>>
+<<endsilently>>
+<<display "continuer">>
+
+
+:: caca
+Ton fusil a fait caca.
+...
+Ah oui?!?
+
+
+Tu es surpris d'apprendre que les fusils peuvent faire caca.
+<<set $estomac = 1>> <<set $caca = true>>
+
+<<display "continuer">>
+
+
+
+:: Nettoyer
+Tu as ramassé les cacas de ton fusil. Il est tout propre maintenant! :)
+<<set $caca = false>>
+
+<<display "continuer">>
+
+
+:: malade
+Ton fusil a l'air un peu rouge et chaud. Tu donc prends sa température.
+
+Oh non! Il fait de la fièvre. Ton fusil est malade.
+
+:(
+<<set $saleté = 1>> <<set $malade = true>>
+<<display "continuer">>
+
+
+
+:: Soigner
+Tu prends soin de ton fusil...
+
+<<if 3*Math.random() lt 1>>
+... mais il ne guérit pas. :(
+<<display "continuer">>
+<<else>>
+Il est guérit! :)
+<<set $malade = false>>
+<<display "continuer">>
+<<endif>>
+
+
