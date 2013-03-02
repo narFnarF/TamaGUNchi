@@ -131,7 +131,7 @@ Stats:
 <<display "get caca">>
 <<display "get malade">>
 
-<<display "get amour">>
+<<display "get amour">>		<<if $amourEstInit>> --> [[Calin|calin]]<<endif>>
 
 Debug:
 estomac=<<print $estomac+"">> 
@@ -179,13 +179,19 @@ saleté=<<print $saleté+"">>
 :: calin
 Calin!!! Yéééé! 
 
-Tu as apprivoisé ton fusil!
-
-Maintenant, il va se souvenir de l'amour que tu lui donne.
-<<silently>>
-<<set $amourEstInit = true>> <<set $amour = 2>>
-<<set $cacaEstInit = true>> <<set $estomac = 1>> <<set $saleté = 1>>
-<<endsilently>>
+<<if not $amourEstInit>>
+	Tu as apprivoisé ton fusil!
+	
+	Maintenant, il va se souvenir de l'amour que tu lui donne.
+	<<silently>>
+	<<set $amourEstInit = true>> <<set $amour = 2>>
+	<<set $cacaEstInit = true>> <<set $estomac = 1>> <<set $saleté = 1>>
+	<<endsilently>>
+<<else>>
+	<<silently>>
+	<<set $amour++>>
+	<<endsilently>>
+<<endif>>
 
 <<display "continuer">>
 
