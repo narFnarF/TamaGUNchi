@@ -99,6 +99,8 @@ Mais tu ne le tue pas.
 	Foutu! Ouvrez les fenêtres!!!
 	
 	Beuhhhh!!
+
+	Ton fusil est un peu gêné...
 	
 	<<display "continuer">>
 	<<set $humeur-->>
