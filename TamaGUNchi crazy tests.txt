@@ -1,21 +1,5 @@
 ::test
-<<if $dejaPet+"" eq "undefined">>
-Ton fusil fait un petit pet.
 
-Awww! C'est cute! ^_^
-
-<<display "continuer">>
-<<set $dejaPet = true>>
-
-<<else>>
-Ton fusil lâche un pet.
-
-Pouah! Celui-là était moins cute!
-
-Ouf!
-
-<<display "continuer">>
-<<endif>>
 
 
 

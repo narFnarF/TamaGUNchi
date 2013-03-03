@@ -34,18 +34,23 @@ Ce jeu fonctionne sur le moteur Twine, Twee et TiddlyWiki.
 
 Inclus des macros par Stormrose et Taz (merci!)
 
-mars 2013
+..Mars 2013
 
 
 :: Start
-Tu as 18 ans. Tes parents t'achètent un fusil.
+<<silently>>
+	//initialisation des tableaux pour les événements
+	<<display "init rencontre random">>
+	<<display "init main storyline">>
+<<endsilently>>Tu as 18 ans. Tes parents t'achètent un fusil.
 Longue intro... tu en voulais un depuis longtemps. Etc 
 
-{image de tamagunchi}
+bla bla...
+
+{image de tamaGUNchi}
 
 [[Tirer la languette du TamaGUNchi|title screen]]
-<<display "init rencontre random">>
-<<display "init main storyline">>
+
 
 
 
