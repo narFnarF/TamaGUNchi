@@ -22,6 +22,20 @@ Un jeu de narF
 [[raccourci apprivoisé]]
 [[Reset stats à max-1]]
 [[activer $humeur]]
+[[Crédits]]
+
+
+::Crédits
+TamaGUNchi a été créé par narF.
+
+Ceci est la version 0.1
+
+Ce jeu fonctionne sur le moteur Twine, Twee et TiddlyWiki.
+
+Inclus des macros par Stormrose et Taz (merci!)
+
+mars 2013
+
 
 :: Start
 Tu as 18 ans. Tes parents t'achètent un fusil.
