@@ -11,40 +11,6 @@
 
 
 
-::get rencontre random
-<<if $lRencontre.length gt 0>>
-	<<silently>>
-	<<set $index = Math.floor(Math.random() * $lRencontre.length)>>
-	<<set $goto = $lRencontre[$index]>>
-	
-	<<endsilently>><<display $goto>>
-<<else>>
-Hummm....
-
-On aurait dit qu'il allait se passer quelque chose, mais finalement non. Bizarre.
-
-[[Continuer|loop]]
-<<endif>>
-
-
-::get main storyline
-<<if $lMain.length gt 0>>
-	<<silently>>
-	<<set $index = Math.floor(Math.random() * $lMain.length)>>
-	nombre pigé=<<print $index+"">>
-	ce que c'est: <<print $lMain[$index]>>
-	
-	<<set $goto = $lMain[$index]>>
-	<<set $lMain.splice($index,1)>>
-	
-	<<endsilently>><<display $goto>>
-<<else>>
-Il n'y a rien à faire. Ton fusil s'ennuie un peu...
-
-[[Continuer|loop]]
-<<endif>>
-
-
 
 
 :: évolution 0 à 1
