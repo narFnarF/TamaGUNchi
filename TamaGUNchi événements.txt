@@ -1,7 +1,8 @@
 :: init rencontre random
 <<set $lRencontre = [
 "un oiseau passe",
-"pet"
+"pet",
+"Aller au stand de tir"
 ]>>
 
 :: init main storyline
@@ -71,3 +72,7 @@ Mais tu ne le tue pas.
 	<<display "continuer">>
 	<<set $humeur-->>
 <<endif>>
+
+
+:: Aller au stand de tir
+stand de tir
