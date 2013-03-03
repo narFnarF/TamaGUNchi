@@ -47,7 +47,7 @@ Mais tu ne le tue pas.
 	
 	<<set $humeur++>>
 <<else>>
-	<<$dejaPet++>>
+	<<set $dejaPet++>>
 <<endif>>
 <<if $dejaPet eq 1>>
 	Ton fusil lâche un pet.
