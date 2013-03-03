@@ -75,4 +75,52 @@ Mais tu ne le tue pas.
 
 
 :: Aller au stand de tir
-stand de tir
+Vous décidez d'aller au stand de tir.
+
+[[Tirer un peu]]
+[[Tirer beaucoup]]
+[[Flirter avec la caissière]]
+
+::Tirer un peu
+Ton fusil s'entraîne à tirer.
+
+Ton fusil te donne un peu d'amour.
+<<silently>>
+<<set $énergie-->>
+<<set $amour = $amour + $énergie>>
+<<set $faim-->>
+<<set $humeur-->>
+<<endsilently>>
+
+<<display "continuer">>
+
+
+::Tirer beaucoup
+Ton fusil passe un long moment au stand de tir. Il s'entraîne like a boss!
+
+Il en ressort épuisé, mais de bonne humeur.
+
+Tu gagnes beaucoup d'amour.
+
+<<display "continuer">>
+
+<<silently>>
+<<set $humeur++>>
+<<set $amour = $amour + $faim + $énergie + $humeur + 2>>
+<<set $énergie = $énergie -3>>
+<<set $faim = $faim -3>>
+<<set $saleté++>>
+<<endsilently>>
+
+
+:: Flirter avec la caissière
+Tu passes beaucoup plus de temps que nécessaire avec la caissière. Ton fusil n'est pas dupe. Il sait qu'est-ce que tu fais!
+
+Il ne te le dit pas, mais il est fier de toi. ;)
+
+<<display "continuer">>
+<<set $humeur++>>
+
+
+
+
