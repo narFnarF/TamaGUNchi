@@ -8,12 +8,15 @@
 <<endsilently>>
 <<display "I shot the sherif">>
 
+
+
 :: init rencontre random
 <<set $lRencontre = [
 "un oiseau passe",
 "pet",
 "Aller au stand de tir",
-"I shot the sherif"
+"I shot the sherif",
+"dangereux terroriste"
 ]>>
 
 :: init main storyline
@@ -178,3 +181,25 @@ Tout le monde rient de cette excellente blague.
 
 <<display "continuer">>
 <<set $humeur = $humeur + 2>>
+
+
+:: dangereux terroriste
+Un dangereux terroriste apparaît!
+
+[[Tire dessus|terroriste tire]]
+[[Dégaine sans tirer|terroriste dégaine]]
+[[Laisse ton fusil caché|terroriste laisse caché]]
+
+:: terroriste tire
+POW!
+
+Tu as fait ton devoir patriotique. La CIA est fière de toi.
+
+<<display "continuer">>
+
+:: terroriste dégaine
+
+:: terroriste laisse caché
+
+
+
