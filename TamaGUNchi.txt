@@ -21,8 +21,9 @@ Un jeu de narF
 [[raccourci]]
 [[raccourci apprivoisé]]
 [[Reset stats à max-1]]
-[[activer $humeur]]
+[[activer var humeur]]
 [[Crédits]]
+[[test événement]]
 
 
 ::Crédits
@@ -96,10 +97,11 @@ Stats remises à max-1
 <<set $malade	= true>>
 [[loop]]
 
-::activer $humeur
+::activer var humeur
 Activation du système d'humeur
-<<set $humeurEstInit = true>><<set $humeur = 5>>
-<<display "continuer">>
+<<set $humeurEstInit = true>>
+<<set $humeur = 5>>
+[[loop]]
 
 
 :: title screen
@@ -279,7 +281,7 @@ Tu as ramassé les cacas de ton fusil. Il est tout propre maintenant! :)
 :: malade
 Ton fusil a l'air un peu rouge et chaud. Tu donc prends sa température.
 
-Oh non! Il fait de la fièvre. Ton fusil est malade.
+Oh non! Il fait de la fièvre. Ton fusil est malade. C'est probablement à cause des cacas qui traînent ou du stress.
 
 :(
 <<set $saleté = 1>> <<set $malade = true>>

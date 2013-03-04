@@ -1,8 +1,19 @@
+:: test événement
+<<silently>>
+<<display "raccourci">>
+<<display "Reset stats à max-1">>
+<<display "activer var humeur">>
+<<set $caca = false>>
+<<set $malade = false>>
+<<endsilently>>
+<<display "I shot the sherif">>
+
 :: init rencontre random
 <<set $lRencontre = [
 "un oiseau passe",
 "pet",
-"Aller au stand de tir"
+"Aller au stand de tir",
+"I shot the sherif"
 ]>>
 
 :: init main storyline
@@ -106,9 +117,9 @@ Tu gagnes beaucoup d'amour.
 
 <<silently>>
 <<set $humeur++>>
-<<set $amour = $amour + $faim + $énergie + $humeur + 2>>
-<<set $énergie = $énergie -3>>
-<<set $faim = $faim -3>>
+<<set $amour = $amour + 5>>
+<<set $énergie = $énergie -2>>
+<<set $faim = $faim -2>>
 <<set $saleté++>>
 <<endsilently>>
 
@@ -122,5 +133,48 @@ Il ne te le dit pas, mais il est fier de toi. ;)
 <<set $humeur++>>
 
 
+:: I shot the sherif
+Dans un élan westernien, tu te retrouve au Far West. Tu sens monter en toi la fibre de cowboy.
+
+«J'aimerais bien aller dans une bonne auberge», que ton fusil te dit.
+
+Mais au travers de ta route, se trouve deux individus.
+
+[[Tirer sur le shérif]]
+[[Tirer sur le député]]
 
 
+:: Tirer sur le shérif
+POW!
+
+Le shérif tombe par terre, mort.
+
+«I shot the sheeerif», chante-tu.
+
+«But you didn't shot the deputy», ajoute ton fusil.
+
+«Whoo hoo hooooooo», chante le député. «Le shérif était en réalité un dangereux bandit. Merci de l'avoir tué!»
+
+...
+
+Suite à ce moment d'alégresse, tu continues où tu étais rendu. Ton fusil est fier d'avoir fait une bonne action.
+
+<<display "continuer">>
+
+<<set $faim-->>
+<<set $humeur++>>
+
+
+:: Tirer sur le député
+Ton fusil vise le député...
+
+POW!
+
+Le débuté devient blême. Il se tâte, mais il n'a rien.
+
+Ton fusil se met à rire. Il leur a fait une blague en tirant une balle blanche.
+
+Tout le monde rient de cette excellente blague.
+
+<<display "continuer">>
+<<set $humeur = $humeur + 2>>
