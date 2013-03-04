@@ -6,7 +6,7 @@
 <<set $caca = false>>
 <<set $malade = false>>
 <<endsilently>>
-<<display "I shot the sherif">>
+<<display "dangereux terroriste">>
 
 
 
@@ -91,9 +91,10 @@ Mais tu ne le tue pas.
 :: Aller au stand de tir
 Vous décidez d'aller au stand de tir.
 
-[[Tirer un peu]]
-[[Tirer beaucoup]]
+<<if ($énergie -1 gte 1) and ($faim -1 gte 1) and ($humeur-1 gte 1)>>[[Tirer un peu]]<<else>>==Tirer un peu==<<endif>>
+<<if ($énergie -2 gte 1) and ($faim -2 gte 1)>>[[Tirer beaucoup]]<<else>>==Tirer beaucoup==<<endif>>
 [[Flirter avec la caissière]]
+
 
 ::Tirer un peu
 Ton fusil s'entraîne à tirer.
@@ -186,20 +187,34 @@ Tout le monde rient de cette excellente blague.
 :: dangereux terroriste
 Un dangereux terroriste apparaît!
 
-[[Tire dessus|terroriste tire]]
-[[Dégaine sans tirer|terroriste dégaine]]
-[[Laisse ton fusil caché|terroriste laisse caché]]
+<<if $faim -1 gte 1>>[[Tire dessus|terroriste - tire]]<<else>>==Tire dessus== (pas de balles; ton fusil a faim!)<<endif>>
+[[Dégaine sans tirer|terroriste - dégaine]]
+[[Laisse ton fusil caché|terroriste - laisse caché]]
 
-:: terroriste tire
+:: terroriste - tire
 POW!
 
 Tu as fait ton devoir patriotique. La CIA est fière de toi.
 
 <<display "continuer">>
+<<set $faim-->>
 
-:: terroriste dégaine
+:: terroriste - dégaine
+Tu sors ton arme. Le dangereux terroriste se fige pendant un instant. Tu en profite pour le neutraliser. C'est une belle arestation remplie de patriotisme et de drapeaux américains.
 
-:: terroriste laisse caché
+Ton fusil est content d'avoir pu intervenir sans nécessairement tirer.
+
+<<display "continuer">>
+<<set $énergie-->>
+<<set $humeur++>>
+
+:: terroriste - laisse caché
+Ton fusil n'intervient pas. Le dangereux terroriste poursuit son chemin sans te remarquer. Fiou!
+
+L'adrénaline a donné beaucoup d'énergie à ton fusil!
+
+<<display "continuer">>
+<<set $énergie = $énergie+2>>
 
 
 
