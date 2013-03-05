@@ -290,15 +290,41 @@ Oh non! Il fait de la fièvre. Ton fusil est malade. C'est probablement à cause
 
 
 :: Soigner
-Tu prends soin de ton fusil...
+Pour soigner ton fusil, tu as le choix entre un médicament traditionnel peu efficace ou un médicament efficace mais dégoutant.
 
+[[Médicament traditionnel]] (1 chance sur 3 de guérison)
+[[Médicament dégoutant]] (guérison garantie, mais son goût cause -10 amour)
+
+
+:: Médicament traditionnel
+Tu utilises un médicament traditionnel pour soigner ton fusil: un bon huilage et nettoyage. Mais est-ce que ce sera efficace?
+
+
+Test de chance...
 <<if 3*Math.random() lt 1>>
-... mais il ne guérit pas. :(
-<<display "continuer">>
+	#... raté!
+	
+	Ton fusil est encore malade. :(
+	
+	<<display "continuer">>
 <<else>>
-Il est guérit! :)
-<<set $malade = false>>
-<<display "continuer">>
+	#... réussit!
+	
+	Ton fusil est guérit! :)
+	
+	<<display "continuer">>
+	<<set $malade = false>>
 <<endif>>
+
+
+:: Médicament dégoutant
+Ton fusil subit le terrible médicament dégoutant.
+
+Il est guérit, mais ce fut une expérience traumatisante pour lui. (amour -10)
+
+[[Continuer|loop]]
+<<set $malade = false>>
+<<set $amour = $amour-10>>
+
 
 
