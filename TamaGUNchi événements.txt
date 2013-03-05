@@ -6,7 +6,12 @@
 <<set $caca = false>>
 <<set $malade = false>>
 <<endsilently>>
-<<display "dangereux terroriste">>
+<<display "accoucher">>
+<<display "coupe de cheveux">>
+<<display "mal au ventre">>
+
+#Faire des événements random plus banals et centré sur les besoins du fusil
+
 
 
 
@@ -16,12 +21,15 @@
 "pet",
 "Aller au stand de tir",
 "I shot the sherif",
-"dangereux terroriste"
+"dangereux terroriste",
+"coupe de cheveux",
+"mal au ventre"
 ]>>
 
 :: init main storyline
 <<set $lMain = [
-"évolution 0 à 1"
+"évolution 0 à 1",
+"accoucher"
 ]>>
 
 
@@ -217,4 +225,49 @@ L'adrénaline a donné beaucoup d'énergie à ton fusil!
 <<set $énergie = $énergie+2>>
 
 
+:: accoucher
+Ton fusil accouche d'un BB gun. 
 
+Malheureusement, tu n'as pas légalement le droit d'avoir 2 fusils. Tu le donne en adoption dans un orphelinat. Les petits enfants orphelins vont bien s'occuper de lui!
+
+Ton fusil a quand même le cœur brisé. 
+
+<<display "continuer">>
+<<set $humeur = 1>>
+<<set $énergie = $énergie -2>>
+
+
+:: mal au ventre
+Ton fusil a mal au ventre. Tu le flatte un peu et ça fini par passer. 
+
+[[Continuer|loop]]
+<<set $humeur-->>
+<<set $amour++>>
+
+
+:: coupe de cheveux
+Tu observes ton fusil...
+
+«Hmmm... Tu vas avoir besoin d'une coupe de cheveux toi!», dit-tu. 
+
+Tu amènes ton fusil chez la coiffeuse. Elle demande:
+
+«Quelle coupe je vous fais?»
+
+[[affro]]
+[[rase motte]]
+
+:: affro
+Ton fusil ressort de chez la coiffeuse avec un affro gigantesque. C'est certainement cool pour le look, mais ça demande beaucoup d'énergie pour déplacer autant de cheveux!
+
+[[Continuer|loop]]
+<<set $humeur++>>
+<<set $énergie-->>
+
+:: rase motte
+Classique et efficace. Avec aussi peu de cheveux, on se sent tout légé!
+
+[[Continuer|loop]]
+<<set $énergie++>>
+<<set $faim-->>
+<<set $saleté-->>
