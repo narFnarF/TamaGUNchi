@@ -1,6 +1,7 @@
 :: continuer
 <<silently>>
 <<if $caca>> <<set $saleté++>> <<endif>>
+<<if $malade>> <<set $amour-->> <<set $énergie = $énergie -2>> <<set $humeur-->> <<endif>>
 
 <<set $link="link loop">>
 <<if $amourEstInit and (Math.random()*5 lt 1)>> <<set $link = "link événement random">> <<endif>>
