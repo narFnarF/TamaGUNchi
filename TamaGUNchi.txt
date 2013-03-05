@@ -272,10 +272,27 @@ Tu es surpris d'apprendre que les fusils peuvent faire caca.
 
 
 :: Nettoyer
-Tu as ramassé les cacas de ton fusil. Il est tout propre maintenant! :)
-<<set $caca = false>>
+Beurk! Ton fusil en a mis partout! Il faut nettoyer!
 
-<<display "continuer">>
+[[Nettoyer|Nettoyer normal]]
+<<if $énergie -2 gte 1>>[[Nettoyer rapidement]]<<else>>==Nettoyer rapidement== (trop fatigué)<<endif>>
+
+:: Nettoyer normal
+Tu as ramassé les cacas de ton fusil. Il est tout propre maintenant! :)
+
+[[Continuer|loop]]
+<<set $caca = false>>
+<<set $saleté++>>
+
+:: Nettoyer rapidement
+Tu demandes à ton fusil de t'aider à ramasser.
+
+C'est du bon travail! (Énergie-2, Humeur+2)
+
+[[Continuer|loop]]
+<<set $énergie = $énergie -2>>
+<<set $humeur = $humeur+ 2>>
+<<set $caca = false>>
 
 
 :: malade
