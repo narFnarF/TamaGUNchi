@@ -228,7 +228,7 @@ L'adrénaline a donné beaucoup d'énergie à ton fusil!
 :: accoucher
 Ton fusil accouche d'un BB gun. 
 
-Malheureusement, tu n'as pas légalement le droit d'avoir 2 fusils. Tu le donne en adoption dans un orphelinat. Les petits enfants orphelins vont bien s'occuper de lui!
+Malheureusement, tu n'as pas légalement le droit d'avoir 2 fusils. Tu le donnes en adoption dans un orphelinat. Les petits enfants orphelins vont bien s'occuper de lui!
 
 Ton fusil a quand même le cœur brisé. 
 
@@ -248,7 +248,7 @@ Ton fusil a mal au ventre. Tu le flatte un peu et ça fini par passer.
 :: coupe de cheveux
 Tu observes ton fusil...
 
-«Hmmm... Tu vas avoir besoin d'une coupe de cheveux toi!», dit-tu. 
+«Hmmm... Tu vas avoir besoin d'une coupe de cheveux toi!», dis-tu. 
 
 Tu amènes ton fusil chez la coiffeuse. Elle demande:
 
