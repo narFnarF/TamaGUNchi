@@ -6,6 +6,8 @@ faire les images de tamagotchi
 
 Balancer les variables
 
+Choix de soins avec différentes efficacités. 
+
 
 :: StoryTitle
 TamaGUNchi
@@ -18,10 +20,10 @@ Un jeu de narF
 ::StoryMenu
 [[loop]]
 [[test]]
-[[raccourci]]
 [[raccourci apprivoisé]]
+[[activer énergie]]
+[[activer humeur]]
 [[Reset stats à max-1]]
-[[activer var humeur]]
 [[Crédits]]
 [[test événement]]
 
@@ -68,18 +70,8 @@ apprivoisé
 <<set $estomac = 1>>
 <<set $saleté = 1>>
 
-::raccourci
-raccourci
-<<set $amourEstInit = true>>
-<<set $amour = 2>>
-
-<<set $faimEstInit = true>>
-<<set $faim = 4>>
-
-<<set $cacaEstInit = true>>
-<<set $estomac = 5>>
-<<set $saleté = 5>>
-
+::activer énergie
+activer énergie
 <<set $énergieEstInit = true>>
 <<set $énergie = 5>>
 
@@ -95,9 +87,9 @@ Stats remises à max-1
 <<set $saleté	= 4>>
 <<set $caca		= true>>
 <<set $malade	= true>>
-[[loop]]
 
-::activer var humeur
+
+::activer humeur
 Activation du système d'humeur
 <<set $humeurEstInit = true>>
 <<set $humeur = 5>>
@@ -109,7 +101,7 @@ Titre en image
 TamaGUNchi
 (sponsorisé par la NRA)
 
-Un jeu de narF
+Un jeu de Francis "narF" Sheridan Paré
 
 (Autres crédits...)
 
