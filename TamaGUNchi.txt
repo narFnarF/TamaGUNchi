@@ -41,11 +41,7 @@ Inclus des macros par Stormrose et Taz (merci!)
 
 
 :: Start
-<<silently>>
-	//initialisation des tableaux pour les événements
-	<<display "init rencontre random">>
-	<<display "init main storyline">>
-<<endsilently>>Tu as 18 ans. Tes parents t'achètent un fusil.
+Tu as 18 ans. Tes parents t'achètent un fusil.
 Longue intro... tu en voulais un depuis longtemps. Etc 
 
 bla bla...
@@ -54,6 +50,11 @@ bla bla...
 
 [[Tirer la languette du TamaGUNchi|title screen]]
 
+<<silently>>
+	//initialisation des tableaux pour les événements
+	<<display "init rencontre random">>
+	<<display "init main storyline">>
+<<endsilently>>
 
 
 
@@ -97,13 +98,13 @@ Activation du système d'humeur
 
 
 :: title screen
-Titre en image
+{Titre en image}
 TamaGUNchi
 (sponsorisé par la NRA)
 
 Un jeu de Francis "narF" Sheridan Paré
 
-(Autres crédits...)
+{Autres crédits?}
 
 [[ouvrir la boîte]]
 
@@ -134,7 +135,8 @@ Oups! Il n'y a pas de munitions dans ton fusil. Ton fusil a très très faim!
 
 
 :: loop
-Ici c'est la loop
+Maintenant, que faire?
+
 Ton fusil: <<display "get type fusil">>
 
 Stats:
@@ -173,12 +175,14 @@ saleté=<<print $saleté+"">>
 <<if $énergie gt 1 or (not $énergieEstInit)>>
 	Ton fusil mange des munitions.
 	
-	Awwww! C'est donc cute un fusil qui mange! <<silently>>
+	Awwww! C'est donc cute un fusil qui mange!
+	<<silently>>
 		<<set $faim++>>
 		<<set $énergie-->>
-		<<set $amour = $amour+$faim>>
+		<<set $amour = $amour+(5-$faim)>>
 		<<if $cacaEstInit>> <<set $estomac++>> <<endif>>
 	<<endsilently>>
+	<<if $faim lte 2 and $amourEstInit>>Astuce: Plus ton fusil a faim quand tu le nouris, plus il te donne d'amour.<<endif>>
 	<<if $faim gt 2 and not $amourEstInit>>Maintenant que tu l'as nouris, ton fusil t'aime! Tu pourrais lui faire un [[calin]]. <<set $faim = 4>> <<endif>>
 <<else>>
 	Ton fusil est trop fatigué. Il n'a même pas l'énergie pour manger. Il faudrait dormir.
@@ -195,7 +199,7 @@ Calin!!! Yéééé!
 <<if not $amourEstInit>>
 	Tu as apprivoisé ton fusil!
 	
-	Maintenant, il va se souvenir de l'amour que tu lui donne.
+	Maintenant, il va se souvenir de l'amour que tu lui donnes.
 	<<silently>>
 	<<set $amourEstInit = true>> <<set $amour = 2>>
 	<<set $cacaEstInit = true>> <<set $estomac = 1>> <<set $saleté = 1>>
@@ -241,6 +245,7 @@ Ton fusil est trop fatigué pour jouer. Il faudrait [[dormir|Dormir]].
 
 :: Dormir
 Dormir?! Ain't nobody got time for that!!
+
 Hehehe... non mais sérieux, ton fusil a fait dodo. Good!
 <<silently>>
 <<set $énergie = 5>>

@@ -1,5 +1,5 @@
 ::test
-
+[[test de display silently]]
 
 
 :: crazy tests
@@ -8,7 +8,25 @@
 
 
 
-::test des silently
+
+::test de display silently
+<<set $c = 0>>
+Un silently dans un display: <<display "test display avec silently">> (1). (should be one line)
+
+<<set $goto = "test display avec silently">>
+<<set $c = 0>>
+Un display avec une variable: <<display $goto>> (1). (should be one line)
+
+
+:: test display avec silently
+<<silently>>
+	<<set $c = $c +1>>
+<<endsilently>><<print $c>>
+
+
+
+
+::test des silently pour la macro du gars
 <<set $c = 1>>
 Now the value of $c is <<print $c>> (1).
 

@@ -29,7 +29,7 @@
 :: init main storyline
 <<set $lMain = [
 "évolution 0 à 1",
-"accoucher"
+"pub bazooka"
 ]>>
 
 
@@ -182,11 +182,11 @@ Ton fusil vise le député...
 
 POW!
 
-Le débuté devient blême. Il se tâte, mais il n'a rien.
+Le débuté devient blême. Il se tâte mais... il n'a rien!
 
-Ton fusil se met à rire. Il leur a fait une blague en tirant une balle blanche.
+Ton fusil se met à rire. Il leur a fait une blague en tirant une balle blanche!
 
-Tout le monde rient de cette excellente blague.
+Tout le monde rient de cette excellente blague. Même le député.
 
 <<display "continuer">>
 <<set $humeur = $humeur + 2>>
@@ -241,9 +241,14 @@ Ton fusil a quand même le cœur brisé.
 Ton fusil a mal au ventre. Tu le flatte un peu et ça fini par passer. 
 
 [[Continuer|loop]]
-<<set $humeur-->>
-<<set $amour++>>
-
+<<silently>>
+	<<set $humeur-->>
+	<<set $saleté++>>
+	<<set $amour++>>
+	<<if $lMain.indexOf("accoucher") eq -1>> (si accoucher n'est pas dans la liste)
+		<<set $lMain.push("accoucher")>>
+	<<endif>>
+<<endsilently>>
 
 :: coupe de cheveux
 Tu observes ton fusil...
@@ -271,3 +276,21 @@ Classique et efficace. Avec aussi peu de cheveux, on se sent tout légé!
 <<set $énergie++>>
 <<set $faim-->>
 <<set $saleté-->>
+
+
+:: pub bazooka
+Tu regardes une annonce à la télé. Tu trouves le produit intriguant.
+
+«Observez bien. Je tire et.... BAM!!! Explosion!
+Revoyons la reprise! Regardez comme l'explosion est impressionnante.
+Avec votre nouveau bazooka, vous pourrez maintenant détruire des choses qui semblait jusqu'ici impossible. Même des tanks!
+
+Écoutez ce témoignage d'un client satisfait: «J'ai toujours cru que je n'arriverais jamais à enlever la crasse dans ma douche. Mais avec mon nouveau bazooka, fini les traces brune dans la baignoire!»
+
+Écoutez cet autre témoignage: «Je n'ai jamais le temps de cuisiner. J'ai essayer les robots culinaires mais ils sont difficiles à nettoyer. Avec mon bazooka, je peut broyer, réduire en purée ou pulvériser les légumes facilement et sans gachis pour me faire des salsas délicieuses. Merci Bazooka!»
+
+Commandez dès maintenant votre bazooka. Seulement 10 paiements facile de 999.99$. Nos téléphonistes attendent votre appel. Appelez maintenant.»
+
+[[Wow!| pub bazooka 2]]
+
+::pub bazooka 2
