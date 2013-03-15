@@ -45,7 +45,7 @@ YÉÉÉ!!!
 Ton fusil a évolué en <<display "get type fusil">>!!!
 
 Ton fusil utilise maintenant de l'énergie pour fonctionner. Surveille sa réserve d'énergie! :)
-<<set $énergieEstInit = true>><<set $énergie = 5>>
+<<set $énergieEstInit = true>><<set $énergie = 2>>
 
 <<display "continuer">>
 
@@ -228,6 +228,7 @@ L'adrénaline a donné beaucoup d'énergie à ton fusil!
 
 <<display "continuer">>
 <<set $énergie = $énergie+2>>
+<<set $humeur = $humeur -2>>
 
 
 :: accoucher
