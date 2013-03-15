@@ -1,14 +1,15 @@
 :: test événement
 <<silently>>
-<<display "raccourci">>
-<<display "Reset stats à max-1">>
-<<display "activer var humeur">>
+<<display "raccourci apprivoisé">>
+<<display "activer énergie">>
+<<display "activer humeur">>
 <<set $caca = false>>
 <<set $malade = false>>
 <<endsilently>>
-<<display "accoucher">>
-<<display "coupe de cheveux">>
-<<display "mal au ventre">>
+
+<<set $dejaPet = -1>>
+[[pet]]
+
 
 #Faire des événements random plus banals et centré sur les besoins du fusil
 
@@ -61,6 +62,10 @@ Mais tu ne le tue pas.
 :: pet
 <<if $dejaPet+"" eq "undefined">>
 	<<set $dejaPet = 0>>
+<<else>>
+	<<set $dejaPet++>>
+<<endif>>
+<<if $dejaPet eq 0>>
 	Ton fusil fait un petit pet.
 	
 	Awww! C'est cute! ^_^
@@ -68,8 +73,6 @@ Mais tu ne le tue pas.
 	<<display "continuer">>
 	
 	<<set $humeur++>>
-<<else>>
-	<<set $dejaPet++>>
 <<endif>>
 <<if $dejaPet eq 1>>
 	Ton fusil lâche un pet.
@@ -81,7 +84,7 @@ Mais tu ne le tue pas.
 	<<display "continuer">>
 	<<set $humeur++>>
 <<endif>>
-<<if $dejaPet gte 2 and $dejaPet lte 4>><<display "get événement random">><<endif>>
+<<if $dejaPet gte 2 and $dejaPet lte 4>><<display "get rencontre random">><<endif>>
 <<if $dejaPet eq 5>>
 	Ton fusil lâche une méga bouse.
 	
@@ -93,6 +96,8 @@ Mais tu ne le tue pas.
 	
 	<<display "continuer">>
 	<<set $humeur-->>
+	<<set $saleté++>>
+	<<set $dejaPet = -1>>
 <<endif>>
 
 
@@ -230,7 +235,7 @@ Ton fusil accouche d'un BB gun.
 
 Malheureusement, tu n'as pas légalement le droit d'avoir 2 fusils. Tu le donnes en adoption dans un orphelinat. Les petits enfants orphelins vont bien s'occuper de lui!
 
-Ton fusil a quand même le cœur brisé. 
+Ton fusil a quand même le coeur brisé. 
 
 <<display "continuer">>
 <<set $humeur = 1>>
@@ -245,7 +250,7 @@ Ton fusil a mal au ventre. Tu le flatte un peu et ça fini par passer.
 	<<set $humeur-->>
 	<<set $saleté++>>
 	<<set $amour++>>
-	<<if $lMain.indexOf("accoucher") eq -1>> (si accoucher n'est pas dans la liste)
+	<<if $lMain.indexOf("accoucher") eq -1>> (si accoucher n'est pas dans la liste, on l'ajoute)
 		<<set $lMain.push("accoucher")>>
 	<<endif>>
 <<endsilently>>
@@ -263,7 +268,7 @@ Tu amènes ton fusil chez la coiffeuse. Elle demande:
 [[rase motte]]
 
 :: affro
-Ton fusil ressort de chez la coiffeuse avec un affro gigantesque. C'est certainement cool pour le look, mais ça demande beaucoup d'énergie pour déplacer autant de cheveux!
+Ton fusil ressort de chez la coiffeuse avec un affro gigantesque. C'est certainement cool pour le look, mais tu perds de l'énergie à déplacer autant de cheveux!
 
 [[Continuer|loop]]
 <<set $humeur++>>
@@ -282,15 +287,75 @@ Classique et efficace. Avec aussi peu de cheveux, on se sent tout légé!
 Tu regardes une annonce à la télé. Tu trouves le produit intriguant.
 
 «Observez bien. Je tire et.... BAM!!! Explosion!
-Revoyons la reprise! Regardez comme l'explosion est impressionnante.
-Avec votre nouveau bazooka, vous pourrez maintenant détruire des choses qui semblait jusqu'ici impossible. Même des tanks!
 
-Écoutez ce témoignage d'un client satisfait: «J'ai toujours cru que je n'arriverais jamais à enlever la crasse dans ma douche. Mais avec mon nouveau bazooka, fini les traces brune dans la baignoire!»
+Revoyons la reprise! Regardez comme l'explosion est impressionnante!
+Avec votre nouveau BAZOOKA, vous pourrez maintenant détruire des choses qui semblait jusqu'ici impossible. Même des tanks!
 
-Écoutez cet autre témoignage: «Je n'ai jamais le temps de cuisiner. J'ai essayer les robots culinaires mais ils sont difficiles à nettoyer. Avec mon bazooka, je peut broyer, réduire en purée ou pulvériser les légumes facilement et sans gachis pour me faire des salsas délicieuses. Merci Bazooka!»
+Écoutez ce témoignage d'un client satisfait: «J'ai toujours cru que je n'arriverais jamais à enlever la crasse dans ma douche. Mais avec mon nouveau BAZOOKA, fini les traces grises dans la baignoire!»
 
-Commandez dès maintenant votre bazooka. Seulement 10 paiements facile de 999.99$. Nos téléphonistes attendent votre appel. Appelez maintenant.»
+Écoutez cet autre témoignage: «Je n'ai jamais le temps de cuisiner. J'ai essayer les robots culinaires mais ils sont difficiles à nettoyer. Avec mon BAZOOKA, je peut broyer, réduire en purée ou pulvériser les légumes facilement et sans gachis* pour me faire des salsas délicieuses. Merci BAZOOKA!»
 
-[[Wow!| pub bazooka 2]]
+Commandez dès maintenant votre BAZOOKA. Seulement 25 paiements facile de 999.99$. Nos téléphonistes attendent votre appel. Appelez maintenant.»
+
+[[Wow!|pub bazooka 2]]
 
 ::pub bazooka 2
+La publicité de bazooka était vraiment impressionnante. Tu veux maintenant ardamment avoir un bazooka. C'est même devenu ton but ultime dans la vie!
+
+Mais que faire? Tu aimes toujours ton fusil. Tu ne sais pas s'il accepterait de partager ta vie avec un bazooka. Que faire?
+
+
+[[Demander à ton fusil s'il serait vexé si tu achètes un bazooka]]
+
+[[Demander à ton fusil d'évoluer en bazooka]]
+
+[[Ne rien révéler à ton fusil sur tes intensions]]
+
+:: Demander à ton fusil s'il serait vexé si tu achètes un bazooka
+Tu demandes à ton fusil si ça le dérangerait de te voir revenir à la maison avec un bazooka.
+
+Ton fusil se met à rire. Non seulement ça ne le dérange pas, mais il t'apprend qu'il peut lui même évoluer en bazooka! Inutile d'en acheter un!
+
+Tu es surpris.
+
+Ton fusil poursuit en t'expliquant que ce ne sera pas facile. Il aura besoin de ton aide. Mais si tu prends bien soin de lui, il pourra un jour évoluer et se transformer jusqu'à devenir un véritable bazooka.
+
+Tu es très content de l'apprendre et tu lui promet de prendre bien soin de lui.
+
+Ton fusil est très content.
+
+[[Continuer|loop]]
+<<set $humeur = $humeur+2>>
+<<set $énergie-->>
+
+
+:: Demander à ton fusil d'évoluer en bazooka
+Tu demandes à ton fusil s'il pourrait évoluer et se transformer en bazooka.
+
+Ton fusil te sourit. Il t'explique que c'est possible, mais que ça sera difficile. Il aura besoin de ton aide. Si tu prends bien soin de lui, il pourra se transformer pour finalement devenir un véritable bazooka.
+
+Tu es très content de l'apprendre et tu lui promet de prendre bien soin de lui.
+
+Ton fusil est très content.
+
+[[Continuer|loop]]
+<<set $humeur = $humeur+2>>
+<<set $faim-->>
+
+
+:: Ne rien révéler à ton fusil sur tes intensions
+Tu reste silencieux.
+
+Cependant, ton fusil n'est pas dupe. Il a vu l'effet que l'annonce à la télé a eu sur toi et comprend que tu voudrais avoir un bazooka.
+
+Heureusement pour toi, il est possible de faire évoluer ton fusil pour qu'il se transforme en bazooka. Cela demandera des efforts, mais si tu t'occupes bien de ton fusil, cela pourrait devenir possible.
+
+Même si ton fusil est maintenant content d'avoir un objectif à atteindre, il est tout de même déçu que tu n'aies pas osé lui en parler.
+
+[[Continuer|loop]]
+<<set $humeur = $humeur-2>>
+<<set $amour = $amour-2>>
+<<set $faim-->>
+<<set $énergie-->>
+
+
