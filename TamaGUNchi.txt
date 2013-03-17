@@ -23,7 +23,7 @@ Un jeu de narF
 [[raccourci apprivoisé]]
 [[activer énergie]]
 [[activer humeur]]
-[[Reset stats à max-1]]
+[[stats debug menu]]
 [[Crédits]]
 [[test événement]]
 
@@ -73,28 +73,54 @@ apprivoisé
 
 ::activer énergie
 activer énergie
+Gun: <<set $typeFusil = 1>> <<display "get type fusil">>
 <<set $énergieEstInit = true>>
 <<set $énergie = 2>>
 
-
-
-:: Reset stats à max-1
-Stats remises à max-1
-
-<<set $faim		= 4>>
-<<set $humeur	= 4>>
-<<set $énergie	= 4>>
-<<set $estomac	= 4>>
-<<set $saleté	= 4>>
-<<set $caca		= true>>
-<<set $malade	= true>>
 
 
 ::activer humeur
 Activation du système d'humeur
 <<set $humeurEstInit = true>>
 <<set $humeur = 5>>
-[[loop]]
+
+:: stats debug menu
+[[stats au minimum]]
+[[Reset stats à max-1]]
+[[stats au max]]
+
+
+::stats au minimum
+stats au minimum
+<<set $faim		= 1>>
+<<set $humeur	= 1>>
+<<set $énergie	= 1>>
+<<set $estomac	= 1>>
+<<set $saleté	= 1>>
+<<set $caca		= false>>
+<<set $malade	= false>>
+
+::stats au max
+stats au max
+<<set $faim		= 5>>
+<<set $humeur	= 5>>
+<<set $énergie	= 5>>
+<<set $estomac	= 5>>
+<<set $saleté	= 5>>
+<<set $amour	= 9999>>
+<<set $caca		= true>>
+<<set $malade	= true>>
+
+:: Reset stats à max-1
+Stats remises à max-1
+<<set $faim		= 4>>
+<<set $humeur	= 4>>
+<<set $énergie	= 4>>
+<<set $estomac	= 4>>
+<<set $saleté	= 4>>
+
+-------------------------------------------------
+
 
 
 :: title screen
