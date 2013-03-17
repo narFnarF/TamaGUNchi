@@ -30,7 +30,9 @@
 :: init main storyline
 <<set $lMain = [
 "évolution 0 à 1",
-"pub bazooka"
+"pub bazooka",
+"moment intime",
+"la nuit"
 ]>>
 
 
@@ -358,5 +360,63 @@ Même si ton fusil est maintenant content d'avoir un objectif à atteindre, il e
 <<set $amour = $amour-2>>
 <<set $faim-->>
 <<set $énergie-->>
+
+
+:: moment intime
+Tu regardes ton fusil dans les yeux. Il te regarde.
+
+Vous vous approchez l'un de l'autre.
+
+[[Il est si beau.|moment intime 2]]
+
+:: moment intime 2
+Ton fusil et toi, vous partagez ensemble un petit moment intime.
+
+...
+
+Sérieux, je veux pas savoir ce que vous faites!
+
+Amour+50 <<set $amour = $amour+50>>
+
+[[Continuer|loop]]
+
+
+
+:: la nuit
+C'est la nuit.
+
+Tu te réveilles en sursaut. Il y a des ombres inquiétantes dans la chambre. C'est probablement rien, mais tu as peur quand même.
+
+Tu te sentirais plus en sécurité si ton fusil dormais avec toi.
+
+Tu essayes de réveiller ton fusil pour qu'il vienne dormir dans ton lit.
+
+Test d'humeur et d'amour...
+<<if ($humeur gte 5) and ($amour gte 50)>>
+	#... raté!
+	
+	Ton fusil n'a pas envie de se faire réveiller.
+	
+	Tu continues d'avoir peur et n'arrive plus à dormir de la nuit.
+	
+	[[Continuer|loop]]
+	<<print $lMain>>
+	<<set $lMain.push("la nuit")>>
+	<<print $lMain>>
+	<<set $énergie = $énergie-2>>
+<<else>>
+	#... réussit!
+	
+	Ton fusil accepte de venir dormir dans ton lit. Tu le place sous ton oreiller.
+	
+	[[Tu te sens en sécurité.|loop]]
+	<<set $amour++>>
+	<<set $faim-->>
+	<<set $énergie-->>
+<<endif>>
+
+
+
+
 
 

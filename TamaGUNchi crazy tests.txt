@@ -1,5 +1,5 @@
 ::test
-[[test de display silently]]
+
 
 
 :: crazy tests
