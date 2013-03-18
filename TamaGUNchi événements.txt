@@ -391,20 +391,11 @@ Tu te sentirais plus en sécurité si ton fusil dormais avec toi.
 
 Tu essayes de réveiller ton fusil pour qu'il vienne dormir dans ton lit.
 
+[[Test d'humeur et d'amour...|la nuit 2]]
+
+:: la nuit 2
 Test d'humeur et d'amour...
-<<if ($humeur gte 5) and ($amour gte 50)>>
-	#... raté!
-	
-	Ton fusil n'a pas envie de se faire réveiller.
-	
-	Tu continues d'avoir peur et n'arrive plus à dormir de la nuit.
-	
-	[[Continuer|loop]]
-	<<print $lMain>>
-	<<set $lMain.push("la nuit")>>
-	<<print $lMain>>
-	<<set $énergie = $énergie-2>>
-<<else>>
+<<if ($humeur gte 5) and ($amour gte 100)>>
 	#... réussit!
 	
 	Ton fusil accepte de venir dormir dans ton lit. Tu le place sous ton oreiller.
@@ -413,10 +404,17 @@ Test d'humeur et d'amour...
 	<<set $amour++>>
 	<<set $faim-->>
 	<<set $énergie-->>
+<<else>>
+	#... raté!
+	
+	Ton fusil n'a pas envie de se faire réveiller.
+	
+	Tu continues d'avoir peur et n'arrive plus à dormir de la nuit.
+	
+	[[Continuer|loop]]
+	<<set $lMain.push("la nuit")>>
+	<<set $énergie = $énergie-2>>
 <<endif>>
-
-
-
 
 
 
