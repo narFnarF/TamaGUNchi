@@ -1,14 +1,3 @@
-implémenter les foutus événements
-	événements random posts-actions
-	événements à activer manuellement
-
-faire les images de tamagotchi
-
-Balancer les variables
-
-Choix de soins avec différentes efficacités. 
-
-
 :: StoryTitle
 TamaGUNchi
 
@@ -17,15 +6,9 @@ TamaGUNchi
 ::StoryAuthor
 Un jeu de narF
 
-::StoryMenu
-[[loop]]
-[[test]]
-[[raccourci apprivoisé]]
-[[activer énergie]]
-[[activer humeur]]
-[[stats debug menu]]
+::StoryMenu disabled
 [[Crédits]]
-[[test événement]]
+
 
 
 ::Crédits
@@ -37,7 +20,12 @@ Ce jeu fonctionne sur le moteur Twine, Twee et TiddlyWiki.
 
 Inclus des macros par Stormrose et Taz (merci!)
 
-..Mars 2013
+Remerciements
+Annie pour les coups de pieds au cul
+1GAM et MRGS parce que c'est des acronymes cools. 
+Merci à Laurence et Anne-Sophie pour leur connaissances sur Les Sims ;)
+
+#..Mars 2013
 
 
 :: Start
@@ -58,68 +46,6 @@ bla bla...
 
 
 
-
-
-
-:: raccourci apprivoisé
-apprivoisé
-<<set $amourEstInit = true>>
-<<set $amour = 2>>
-<<set $faimEstInit = true>>
-<<set $faim = 4>>
-<<set $cacaEstInit = true>>
-<<set $estomac = 1>>
-<<set $saleté = 1>>
-
-::activer énergie
-activer énergie
-Gun: <<set $typeFusil = 1>> <<display "get type fusil">>
-<<set $énergieEstInit = true>>
-<<set $énergie = 2>>
-
-
-
-::activer humeur
-Activation du système d'humeur
-<<set $humeurEstInit = true>>
-<<set $humeur = 5>>
-
-:: stats debug menu
-[[stats au minimum]]
-[[Reset stats à max-1]]
-[[stats au max]]
-
-
-::stats au minimum
-stats au minimum
-<<set $faim		= 1>>
-<<set $humeur	= 1>>
-<<set $énergie	= 1>>
-<<set $estomac	= 1>>
-<<set $saleté	= 1>>
-<<set $caca		= false>>
-<<set $malade	= false>>
-
-::stats au max
-stats au max
-<<set $faim		= 5>>
-<<set $humeur	= 5>>
-<<set $énergie	= 5>>
-<<set $estomac	= 5>>
-<<set $saleté	= 5>>
-<<set $amour	= 9999>>
-<<set $caca		= true>>
-<<set $malade	= true>>
-
-:: Reset stats à max-1
-Stats remises à max-1
-<<set $faim		= 4>>
-<<set $humeur	= 4>>
-<<set $énergie	= 4>>
-<<set $estomac	= 4>>
-<<set $saleté	= 4>>
-
--------------------------------------------------
 
 
 

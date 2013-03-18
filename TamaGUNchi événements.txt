@@ -11,7 +11,7 @@
 [[pet]]
 
 
-#Faire des événements random plus banals et centré sur les besoins du fusil
+
 
 
 

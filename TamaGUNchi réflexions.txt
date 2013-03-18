@@ -1,3 +1,16 @@
+TODO:
+- Faire l'introduction 
+- Événements:
+	- Flashback de jeunesse (déclanche stats d'humeur)
+	- Faire des événements random plus banals et centré sur les besoins du fusil
+	- s'habiller chic et participer à un concours de beauté
+	- aller à la chasse
+	- déboire avec la police
+- Faire les images de tamagotchi
+- Balancer les variables
+
+
+
 ======= Notes =======
 
 :: bordel de brouillons
@@ -67,11 +80,6 @@ See you in heaven. High five!
 aller à la chasse
 déboire avec la police
 
-
-3 choix
-    Tirer dessus
-    Brandir le fusil sans tirer
-    Garder le fusil caché
 
 
 S'inspirer des films et jeux
