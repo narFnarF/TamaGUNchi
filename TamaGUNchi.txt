@@ -199,25 +199,51 @@ saleté=<<print $saleté+"">>
 
 :: Manger
 <<if $énergie gt 1 or (not $énergieEstInit)>>
-	Ton fusil mange des munitions.
-	
-	Awwww! C'est donc cute un fusil qui mange!
-	<<silently>>
-		<<set $faim++>>
-		<<set $énergie-->>
-		<<set $amour = $amour+(5-$faim)>>
-		<<if $cacaEstInit>> <<set $estomac++>> <<endif>>
-	<<endsilently>>
-	<<if $faim lte 2 and $amourEstInit>>Astuce: Plus ton fusil a faim quand tu le nouris, plus il te donne d'amour.<<endif>>
-	<<if $faim gt 2 and not $amourEstInit>>Maintenant que tu l'as nouris, ton fusil t'aime! Tu pourrais lui faire un [[calin]]. <<set $faim = 4>> <<endif>>
+	<<if $amourEstInit>>
+		Ton fusil peut manger un peu ou manger beaucoup.
+		
+		[[Manger un peu]] (énergie-1, faim+1)
+		<<if $amour-5 gte 0>>[[Manger beaucoup]]<<else>>==Manger beaucoup==<<endif>> (amour-5, faim MAX)
+	<<else>>
+		<<display "Manger début">>
+	<<endif>>
 <<else>>
 	Ton fusil est trop fatigué. Il n'a même pas l'énergie pour manger. Il faudrait dormir.
 	[[Dormir]]
+	
+	<<display "continuer">>
 <<endif>>
+
+
+
+:: Manger début
+Ton fusil mange des munitions.
+
+Awwww! C'est donc cute un fusil qui mange!
+<<set $faim++>>
+<<if $faim gt 2 and not $amourEstInit>>Maintenant que tu l'as nouris, ton fusil t'aime! Tu pourrais lui faire un [[calin]]. <<set $faim = 4>> <<endif>>
+
+[[Continuer|loop]]
+
+:: Manger un peu
+Ton fusil mange des munitions.
+<<silently>>
+	<<set $faim++>>
+	<<set $énergie-->>
+	<<set $amour = $amour+(5-$faim)>>
+	<<if $cacaEstInit>> <<set $estomac++>> <<endif>>
+<<endsilently>>
+<<if $faim lte 2 and $amourEstInit>>Astuce: Plus ton fusil a faim quand tu le nouris, plus il te donne d'amour.<<endif>>
 
 <<display "continuer">>
 
+:: Manger beaucoup
+Ton fusil mange du gros calibre.
 
+Amour-5<<set $amour = $amour-5>>
+Faim MAX<<set $faim = 5>>
+
+<<display "continuer">>
 
 :: calin
 Calin!!! Yéééé! 
@@ -270,26 +296,26 @@ Ton fusil est trop fatigué pour jouer. Il faudrait [[dormir|Dormir]].
 
 
 :: Dormir
-Dormir?! Ain't nobody got time for that!!
+Ton fusil fait une petite sièste. Il se réveille avec plein d'énergie... et un petit creux!
 
-Hehehe... non mais sérieux, ton fusil a fait dodo. Good!
+<<display "continuer">>
 <<silently>>
 <<set $énergie = 5>>
 <<set $faim-->>
 <<set $amour++>>
 <<endsilently>>
-<<display "continuer">>
+
 
 
 :: caca
 Ton fusil a fait caca.
-...
-Ah oui?!?
-
-
-Tu es surpris d'apprendre que les fusils peuvent faire caca.
+<<if not $dejaCaca>>...
+	Ah oui?!?
+	
+	<<set $dejaCaca = true>>
+	Tu es surpris d'apprendre que les fusils peuvent faire caca.
+	<<endif>>
 <<set $estomac = 1>> <<set $caca = true>>
-
 <<display "continuer">>
 
 

@@ -79,7 +79,7 @@ Il n'y a rien à faire. Ton fusil s'ennuie un peu...
 <<silently>>
 <<set $nom = "premier gun BUG_ME">>
 
-<<if $typeFusil eq 1>> <<set $nom = "fusil à pompes">> <<endif>>
+<<if $typeFusil eq 1>> <<set $nom = "fusil de chasse">> <<endif>>
 <<if $typeFusil eq 2>> <<set $nom = "mitraillette">> <<endif>>
 <<if $typeFusil eq 3>> <<set $nom = "sniper">> <<endif>>
 <<if $typeFusil eq 4>> <<set $nom = "bazooka">> <<endif>>
