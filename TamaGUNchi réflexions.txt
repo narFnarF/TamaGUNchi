@@ -1,11 +1,12 @@
 TODO:
-- Magasin: Conversion de l'amour en sous
 - Événements:
 	- Flashback de jeunesse (déclanche stats d'humeur)
 	- Faire des événements random plus banals et centré sur les besoins du fusil
 	- s'habiller chic et participer à un concours de beauté
 	- aller à la chasse
 	- déboire avec la police
+- Réorganiser l'ordre des événements
+- Magasin? (Conversion de l'amour en sous)
 - Faire les images de tamagotchi
 - Balancer les variables
 
