@@ -199,9 +199,11 @@ Après un moment, tu réalises que tu es tombé dans la Lune...
 
 Ce n'est pas grave. Ton fusil s'amuse tout seul en attendant.
 <<silently>>
-<<set $faim-->>
-<<set $humeur-->>
-<<set $énergie-->>
+	<<if $amourEstInit>>
+		<<set $faim-->>
+		<<set $humeur-->>
+		<<set $énergie-->>
+	<<endif>>
 <<endsilently>>
 Après un moment, tu retournes t'occuper de ton fusil.
 
