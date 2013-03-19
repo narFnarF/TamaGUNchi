@@ -48,7 +48,7 @@ YÉÉÉ!!!
 Ton fusil a évolué en <<display "get type fusil">>!!!
 
 Ton fusil utilise maintenant de l'énergie pour fonctionner. Surveille sa réserve d'énergie! :)
-<<set $énergieEstInit = true>><<set $énergie = 2>>
+<<set $énergieEstInit = true>><<set $énergie = 1>>
 
 <<display "continuer">>
 
@@ -107,8 +107,8 @@ Mais tu ne le tue pas.
 :: Aller au stand de tir
 Vous décidez d'aller au stand de tir.
 
-<<if ($énergie -1 gte 1) and ($faim -1 gte 0) and ($humeur-1 gte 1)>>[[Tirer un peu]]<<else>>==Tirer un peu==<<endif>>
-<<if ($énergie -2 gte 1) and ($faim -2 gte 0)>>[[Tirer beaucoup]]<<else>>==Tirer beaucoup==<<endif>>
+<<if ($énergie -1 gte 0) and ($faim -1 gte 0) and ($humeur-1 gte 0)>>[[Tirer un peu]]<<else>>==Tirer un peu==<<endif>>
+<<if ($énergie -2 gte 0) and ($faim -2 gte 0)>>[[Tirer beaucoup]]<<else>>==Tirer beaucoup==<<endif>>
 [[Flirter avec la caissière]]
 
 
@@ -242,7 +242,7 @@ Malheureusement, tu n'as pas légalement le droit d'avoir 2 fusils. Tu le donnes
 Ton fusil a quand même le coeur brisé. 
 
 <<display "continuer">>
-<<set $humeur = 1>>
+<<set $humeur = 0>>
 <<set $énergie = $énergie -2>>
 
 
@@ -396,7 +396,7 @@ Tu essayes de réveiller ton fusil pour qu'il vienne dormir dans ton lit.
 
 :: la nuit 2
 Test d'humeur et d'amour...
-<<if ($humeur gte 5) and ($amour gte 100)>>
+<<if ($humeur gte 4) and ($amour gte 100)>>
 	#... réussit!
 	
 	Ton fusil accepte de venir dormir dans ton lit. Tu le place sous ton oreiller.
