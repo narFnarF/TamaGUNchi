@@ -1,11 +1,7 @@
 ::test
-no dash
-#un dash
-## deux dash
 
-no star
-*one star
-**two star
+
+
 
 :: crazy tests
 
