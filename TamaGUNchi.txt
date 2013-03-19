@@ -6,7 +6,7 @@ TamaGUNchi
 ::StoryAuthor
 Un jeu de narF
 
-::StoryMenu disabled
+::StoryMenu
 [[Crédits]]
 
 
@@ -29,15 +29,15 @@ Merci à Laurence et Anne-Sophie pour leur connaissances sur Les Sims ;)
 
 
 :: Start
-Tu as 18 ans. Tes parents t'achètent un fusil.
-Longue intro... tu en voulais un depuis longtemps. Etc 
+C'est ta fête. Tu as 18 ans.
 
-bla bla...
+Tes parents te donne leur cadeau.
 
-{image de tamaGUNchi}
+Tu penses deviner ce que c'est. Après tout, tu leur en a tant parlé... et ils étaient d'accord...
 
-[[Tirer la languette du TamaGUNchi|title screen]]
+En déballant le papier, tu espères vraiment que ce soit ce que tu penses.
 
+[[Déballer ton cadeau]]
 <<silently>>
 	//initialisation des tableaux pour les événements
 	<<display "init rencontre random">>
@@ -45,20 +45,38 @@ bla bla...
 <<endsilently>>
 
 
+::Déballer ton cadeau
+OUIIIIII!!!!
+
+C'est exactement ce que tu voulais!
+
+Un fusil! Un fusil juste pour toi!
+
+Oooooh!! Tu as attendu si longtemps avant de pouvoir en avoir un! Un vrai de vrai <<display "get type fusil">>!!
+
+Tu as hâte de l'essayer. Mais avant, il faut retirer la languette de sécurité.
+
+[[Tirer la languette|title screen]]
+
+
+
 
 
 
 
 :: title screen
-{Titre en image}
-TamaGUNchi
-(sponsorisé par la NRA)
+<html><center>
+<h1>TamaGUNchi</h1>
+<br>(sponsorisé par la NRA)<br>
+<img src="images/tamagunchi.png">
+</center></html>
+
 
 Un jeu de Francis "narF" Sheridan Paré
 
-{Autres crédits?}
+{Autres crédits? ... Yes! Sam as joinded the party.}
 
-[[ouvrir la boîte]]
+[[Déballer le fusil de sa boîte|ouvrir la boîte]]
 
 
 
@@ -151,6 +169,7 @@ Awwww! C'est donc cute un fusil qui mange!
 
 [[Continuer|loop]]
 
+
 :: Manger un peu
 Ton fusil mange des munitions.
 <<silently>>
@@ -163,6 +182,7 @@ Ton fusil mange des munitions.
 
 <<display "continuer">>
 
+
 :: Manger beaucoup
 Ton fusil mange du gros calibre.
 
@@ -170,6 +190,7 @@ Amour-5<<set $amour = $amour-5>>
 Faim MAX<<set $faim = 5>>
 
 <<display "continuer">>
+
 
 :: calin
 Calin!!! Yéééé! 

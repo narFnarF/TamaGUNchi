@@ -1,5 +1,5 @@
 TODO:
-- Faire l'introduction 
+- Magasin: Conversion de l'amour en sous
 - Événements:
 	- Flashback de jeunesse (déclanche stats d'humeur)
 	- Faire des événements random plus banals et centré sur les besoins du fusil

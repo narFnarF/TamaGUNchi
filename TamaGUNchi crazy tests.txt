@@ -1,12 +1,14 @@
 ::test
-[[crazy tests]]
-Lequel sera affiché?
+no dash
+#un dash
+## deux dash
+
+no star
+*one star
+**two star
 
 :: crazy tests
-111
 
-:: crazy tests
-222
 
 
 
