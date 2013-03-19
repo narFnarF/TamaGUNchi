@@ -110,7 +110,7 @@ Maintenant, que faire?
 Ton fusil: <<display "get type fusil">>
 
 Stats:
-<<display "get faim">>		<<if $faim lt 5>> --> [[Manger]]<<endif>>
+<<display "get faim">>		<<if $faim lt 4>> --> [[Manger]]<<endif>>
 <<display "get énergie">>	<<if $énergie lt 5 and $énergieEstInit>> --> [[Dormir]]<<endif>>
 <<display "get humeur">>	<<if $humeur lt 5 and $humeurEstInit>> --> [[Jouer]]<<endif>>
 <<display "get caca">>
@@ -165,7 +165,7 @@ Ton fusil mange des munitions.
 
 Awwww! C'est donc cute un fusil qui mange!
 <<set $faim++>>
-<<if $faim gt 2 and not $amourEstInit>>Maintenant que tu l'as nouris, ton fusil t'aime! Tu pourrais lui faire un [[calin]]. <<set $faim = 4>> <<endif>>
+<<if $faim gte 2 and not $amourEstInit>>Maintenant que tu l'as nouris, ton fusil t'aime! Tu pourrais lui faire un [[calin]]. <<set $faim = 3>> <<endif>>
 
 [[Continuer|loop]]
 
@@ -175,10 +175,10 @@ Ton fusil mange des munitions.
 <<silently>>
 	<<set $faim++>>
 	<<set $énergie-->>
-	<<set $amour = $amour+(5-$faim)>>
+	<<set $amour = $amour+(4-$faim)>>
 	<<if $cacaEstInit>> <<set $estomac++>> <<endif>>
 <<endsilently>>
-<<if $faim lte 2 and $amourEstInit>>Astuce: Plus ton fusil a faim quand tu le nouris, plus il te donne d'amour.<<endif>>
+<<if $faim lte 1 and $amourEstInit>>Astuce: Ton fusil te donner plus d'amour quand il a très faim et que tu lui donne à manger.<<endif>>
 
 <<display "continuer">>
 
@@ -187,7 +187,7 @@ Ton fusil mange des munitions.
 Ton fusil mange du gros calibre.
 
 Amour-5<<set $amour = $amour-5>>
-Faim MAX<<set $faim = 5>>
+Faim MAX<<set $faim = 4>>
 
 <<display "continuer">>
 

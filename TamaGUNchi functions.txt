@@ -64,9 +64,9 @@ Il n'y a rien à faire. Ton fusil s'ennuie un peu...
 <<endsilently>><<if $énergieEstInit>>Énergie: <<print $énergie+"">>/5<<endif>>
 
 :: get faim
-<<silently>> <<if $faim lt 1>> <<set $faim = 1>> <<endif>>
-<<if $faim gt 5>> <<set $faim = 5>> <<endif>>
-<<endsilently>><<if $faimEstInit>>Faim: <<print $faim+"">>/5<<endif>>
+<<silently>> <<if $faim lt 0>> <<set $faim = 0>> <<endif>>
+<<if $faim gt 4>> <<set $faim = 4>> <<endif>>
+<<endsilently>><<if $faimEstInit>>Faim: <<print $faim+"">>/4<<endif>>
 
 :: get caca
 <<if $cacaEstInit and $caca>>Ton fusil a fait caca (et il trempe dedans)  --> [[Nettoyer]] <<endif>>
