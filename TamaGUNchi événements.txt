@@ -32,7 +32,8 @@
 "évolution 0 à 1",
 "pub bazooka",
 "moment intime",
-"la nuit"
+"la nuit",
+"chasse aux perdrix"
 ]>>
 
 
@@ -298,7 +299,7 @@ Avec votre nouveau BAZOOKA, vous pourrez maintenant détruire des choses qui sem
 
 Écoutez cet autre témoignage: «Je n'ai jamais le temps de cuisiner. J'ai essayer les robots culinaires mais ils sont difficiles à nettoyer. Avec mon BAZOOKA, je peut broyer, réduire en purée ou pulvériser les légumes facilement et sans gachis* pour me faire des salsas délicieuses. Merci BAZOOKA!»
 
-Commandez dès maintenant votre BAZOOKA. Seulement 25 paiements facile de 999.99$. Nos téléphonistes attendent votre appel. Appelez maintenant.»
+Commandez dès maintenant votre BAZOOKA. Seulement 25 paiements faciles de 999.99$. Nos téléphonistes attendent votre appel. Appelez maintenant.»
 
 [[Wow!|pub bazooka 2]]
 
@@ -409,11 +410,27 @@ Test d'humeur et d'amour...
 	
 	Ton fusil n'a pas envie de se faire réveiller.
 	
-	Tu continues d'avoir peur et n'arrive plus à dormir de la nuit.
+	Tu continues d'avoir peur et n'arrives plus à dormir de la nuit.
 	
 	[[Continuer|loop]]
 	<<set $lMain.push("la nuit")>>
 	<<set $énergie = $énergie-2>>
+<<endif>>
+
+
+:: chasse aux perdrix
+Tu vas à la chasse aux perdrix.
+
+<<if $faim-3 gte 0>>
+	Pow! Pow! Pow!
+	
+	Tu as ......................
+<<else>>
+	Oh, tu n'as pas assez de munitions. Ton fusil a trop faim.
+	
+	Il te faut 3 balles (Faim = 3) pour pouvoir aller chasser les perdrix.
+	
+	<<display "continuer">>
 <<endif>>
 
 
