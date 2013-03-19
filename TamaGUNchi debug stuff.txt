@@ -14,7 +14,7 @@ apprivoisé
 <<set $amourEstInit = true>>
 <<set $amour = 2>>
 <<set $faimEstInit = true>>
-<<set $faim = 4>>
+<<set $faim = 3>>
 <<set $cacaEstInit = true>>
 <<set $estomac = 1>>
 <<set $saleté = 1>>
@@ -40,7 +40,7 @@ Activation du système d'humeur
 
 ::stats au minimum
 stats au minimum
-<<set $faim		= 1>>
+<<set $faim		= 0>>
 <<set $humeur	= 1>>
 <<set $énergie	= 1>>
 <<set $estomac	= 1>>
@@ -50,7 +50,7 @@ stats au minimum
 
 ::stats au max
 stats au max
-<<set $faim		= 5>>
+<<set $faim		= 4>>
 <<set $humeur	= 5>>
 <<set $énergie	= 5>>
 <<set $estomac	= 5>>
@@ -61,7 +61,7 @@ stats au max
 
 :: Reset stats à max-1
 Stats remises à max-1
-<<set $faim		= 4>>
+<<set $faim		= 3>>
 <<set $humeur	= 4>>
 <<set $énergie	= 4>>
 <<set $estomac	= 4>>

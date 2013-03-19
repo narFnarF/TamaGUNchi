@@ -107,8 +107,8 @@ Mais tu ne le tue pas.
 :: Aller au stand de tir
 Vous décidez d'aller au stand de tir.
 
-<<if ($énergie -1 gte 1) and ($faim -1 gte 1) and ($humeur-1 gte 1)>>[[Tirer un peu]]<<else>>==Tirer un peu==<<endif>>
-<<if ($énergie -2 gte 1) and ($faim -2 gte 1)>>[[Tirer beaucoup]]<<else>>==Tirer beaucoup==<<endif>>
+<<if ($énergie -1 gte 1) and ($faim -1 gte 0) and ($humeur-1 gte 1)>>[[Tirer un peu]]<<else>>==Tirer un peu==<<endif>>
+<<if ($énergie -2 gte 1) and ($faim -2 gte 0)>>[[Tirer beaucoup]]<<else>>==Tirer beaucoup==<<endif>>
 [[Flirter avec la caissière]]
 
 
@@ -203,7 +203,7 @@ Tout le monde rient de cette excellente blague. Même le député.
 :: dangereux terroriste
 Un dangereux terroriste apparaît!
 
-<<if $faim -1 gte 1>>[[Tire dessus|terroriste - tire]]<<else>>==Tire dessus== (pas de balles; ton fusil a faim!)<<endif>>
+<<if $faim -1 gte 0>>[[Tire dessus|terroriste - tire]]<<else>>==Tire dessus== (pas de balles; ton fusil a faim!)<<endif>>
 [[Dégaine sans tirer|terroriste - dégaine]]
 [[Laisse ton fusil caché|terroriste - laisse caché]]
 
@@ -421,14 +421,15 @@ Test d'humeur et d'amour...
 :: chasse aux perdrix
 Tu vas à la chasse aux perdrix.
 
-<<if $faim-3 gte 0>>
-	Pow! Pow! Pow!
+<<if $faim-4 gte 0>>
+	Pow! Pow! Pow! Pow!
 	
 	Tu as ......................
+	<<set $faim = $faim-4>>
 <<else>>
 	Oh, tu n'as pas assez de munitions. Ton fusil a trop faim.
 	
-	Il te faut 3 balles (Faim = 3) pour pouvoir aller chasser les perdrix.
+	Il te faut 4 balles (Faim = 4/4) pour pouvoir aller chasser les perdrix.
 	
 	<<display "continuer">>
 <<endif>>
