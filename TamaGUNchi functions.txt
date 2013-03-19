@@ -77,7 +77,7 @@ Il n'y a rien à faire. Ton fusil s'ennuie un peu...
 
 :: get type fusil
 <<silently>>
-<<set $nom = "premier gun BUG_ME">>
+<<set $nom = "pistolet">>
 
 <<if $typeFusil eq 1>> <<set $nom = "fusil de chasse">> <<endif>>
 <<if $typeFusil eq 2>> <<set $nom = "mitraillette">> <<endif>>
