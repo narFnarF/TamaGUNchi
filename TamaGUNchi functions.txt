@@ -1,6 +1,6 @@
 :: continuer
 <<silently>>
-<<if $caca>> <<set $saleté++>> <<endif>>
+<<if $caca>> <<set $saleté++>> <<set $humeur-->> <<set $amour-->> <<endif>>
 <<if $malade>> <<set $amour-->> <<set $énergie = $énergie -2>> <<set $humeur-->> <<endif>>
 
 <<set $link="link loop">>
