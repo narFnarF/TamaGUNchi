@@ -54,14 +54,14 @@ Il n'y a rien à faire. Ton fusil s'ennuie un peu...
 <<endsilently>><<if $amourEstInit>>Amour: <<print $amour+"">><<endif>>
 
 :: get humeur
-<<silently>> <<if $humeur lt 1>> <<set $humeur = 1>> <<endif>>
-<<if $humeur gt 5>> <<set $humeur = 5>> <<endif>>
-<<endsilently>><<if $humeurEstInit>>Humeur: <<print $humeur+"">>/5<<endif>>
+<<silently>> <<if $humeur lt 0>> <<set $humeur = 0>> <<endif>>
+<<if $humeur gt 4>> <<set $humeur = 4>> <<endif>>
+<<endsilently>><<if $humeurEstInit>>Humeur: <<print $humeur+"">>/4<<endif>>
 
 :: get énergie
-<<silently>> <<if $énergie lt 1>> <<set $énergie = 1>> <<endif>>
-<<if $énergie gt 5>> <<set $énergie = 5>> <<endif>>
-<<endsilently>><<if $énergieEstInit>>Énergie: <<print $énergie+"">>/5<<endif>>
+<<silently>> <<if $énergie lt 0>> <<set $énergie = 0>> <<endif>>
+<<if $énergie gt 4>> <<set $énergie = 4>> <<endif>>
+<<endsilently>><<if $énergieEstInit>>Énergie: <<print $énergie+"">>/4<<endif>>
 
 :: get faim
 <<silently>> <<if $faim lt 0>> <<set $faim = 0>> <<endif>>
