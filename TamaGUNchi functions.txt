@@ -42,7 +42,7 @@ On aurait dit qu'il allait se passer quelque chose, mais finalement non. Bizarre
 	<<endsilently>><<display $goto>>
 <<else>>
 Il n'y a rien à faire. Ton fusil s'ennuie un peu...
-
+<<set $humeur-->>
 [[Continuer|loop]]
 <<endif>>
 
