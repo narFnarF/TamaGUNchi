@@ -50,8 +50,7 @@ Il n'y a rien à faire. Ton fusil s'ennuie un peu...
 
 
 :: get amour
-<<silently>> <<if $amour lt 1>> <<set $amour = 1>> <<endif>>
-<<endsilently>><<if $amourEstInit>>Amour: <<print $amour+"">><<endif>>
+<<if $amourEstInit>>Amour: <<print $amour+"">><<endif>>
 
 :: get humeur
 <<silently>> <<if $humeur lt 0>> <<set $humeur = 0>> <<endif>>
