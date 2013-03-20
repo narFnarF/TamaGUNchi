@@ -230,6 +230,12 @@ Après un moment, tu retournes t'occuper de ton fusil.
 
 <<display "continuer">>
 
+<<if $amourEstInit>>
+Faim-1
+Humeur-1
+Énergie-1
+<<endif>>
+
 
 :: Jouer
 <<if $énergie gte 1>>
