@@ -23,16 +23,12 @@
 "Aller au stand de tir",
 "I shot the sherif",
 "dangereux terroriste",
-"coupe de cheveux",
-"mal au ventre"
+"coupe de cheveux"
 ]>>
 
 :: init main storyline
 <<set $lMain = [
-"évolution 0 à 1",
 "pub bazooka",
-"moment intime",
-"la nuit",
 "chasse aux perdrix"
 ]>>
 
@@ -41,7 +37,7 @@
 
 
 :: évolution 0 à 1
-On évolue!!
+On évolue!! BUG_ME
 <<set $typeFusil = 1>>
 YÉÉÉ!!!
 
@@ -51,6 +47,20 @@ Ton fusil utilise maintenant de l'énergie pour fonctionner. Surveille sa réser
 <<set $énergieEstInit = true>><<set $énergie = 1>>
 
 <<display "continuer">>
+<<set lMain.push("évolution 1 à 2", "la nuit")>>
+<<set lRencontre.push("mal au ventre")>>
+
+
+
+:: évolution 1 à 2
+On évolue!! BUG_ME
+<<set $typeFusil = 2>>
+YÉÉÉ!!!
+
+Ton fusil a évolué en <<display "get type fusil">>!!!
+
+<<display "continuer">>
+<<set lMain.push("moment intime")>>
 
 
 :: un oiseau passe
@@ -244,6 +254,7 @@ Ton fusil a quand même le coeur brisé.
 <<display "continuer">>
 <<set $humeur = 0>>
 <<set $énergie = $énergie -2>>
+<<set lMain.push("visite orphelinat")>>
 
 
 :: mal au ventre
@@ -254,9 +265,7 @@ Ton fusil a mal au ventre. Tu le flatte un peu et ça fini par passer.
 	<<set $humeur-->>
 	<<set $saleté++>>
 	<<set $amour++>>
-	<<if $lMain.indexOf("accoucher") eq -1>> (si accoucher n'est pas dans la liste, on l'ajoute)
-		<<set $lMain.push("accoucher")>>
-	<<endif>>
+	<<set $lRencontre.push("accoucher")>>
 <<endsilently>>
 
 :: coupe de cheveux
@@ -302,6 +311,7 @@ Avec votre nouveau BAZOOKA, vous pourrez maintenant détruire des choses qui sem
 Commandez dès maintenant votre BAZOOKA. Seulement 25 paiements faciles de 999.99$. Nos téléphonistes attendent votre appel. Appelez maintenant.»
 
 [[Wow!|pub bazooka 2]]
+<<set lMain.push("évolution 0 à 1")>>
 
 ::pub bazooka 2
 La publicité de bazooka était vraiment impressionnante. Tu veux maintenant ardamment avoir un bazooka. C'est même devenu ton but ultime dans la vie!
@@ -421,18 +431,37 @@ Test d'humeur et d'amour...
 :: chasse aux perdrix
 Tu vas à la chasse aux perdrix.
 
+Test de faim...
+
 <<if $faim-4 gte 0>>
-	Pow! Pow! Pow! Pow!
+	#...réussit!
+
+	Pow! Pow! Pow! Pow! <<set $faim = $faim-4>>
 	
-	Tu as ......................
-	<<set $faim = $faim-4>>
+	Tu as réussi à tuer une perdrix!<<set $énergie = $énergie-2>>
+	
+	Ton fusil est content de son exploit (Humeur+1)<<set $humeur++>>
+	
+	Tu fais cuire la perdrix. Ça te fait un bon souper. Malheureusement, ton fusil ne peut pas en manger. Il ne mange que des munitions, évidemment!
+	
+	<<display "continuer">>
+	
+	Énergie-2
 <<else>>
+	#...raté!
+	
 	Oh, tu n'as pas assez de munitions. Ton fusil a trop faim.
 	
 	Il te faut 4 balles (Faim = 4/4) pour pouvoir aller chasser les perdrix.
 	
 	<<display "continuer">>
+	<<set $lMain.push("chasse aux perdrix")>>
 <<endif>>
 
 
+::visite orphelinat
+Ton fusil visite son BBgun à l'orphelinat.
 
+Événement pas encore écrit. BUG_ME
+
+<<display "continuer">>
