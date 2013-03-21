@@ -2,14 +2,13 @@
 <<silently>>
 <<display "raccourci apprivoisé">>
 <<display "activer énergie">>
-<<display "activer humeur">>
 <<set $caca = false>>
 <<set $malade = false>>
 <<endsilently>>
 
-<<set $dejaPet = -1>>
-[[pet]]
-
+[[évolution 0 à 1]]
+[[mal au ventre]]
+[[accoucher]]
 
 
 
@@ -37,7 +36,7 @@
 
 
 :: évolution 0 à 1
-On évolue!! BUG_ME
+On évolue!! BUG_ME évolution 1
 <<set $typeFusil = 1>>
 YÉÉÉ!!!
 
@@ -47,20 +46,20 @@ Ton fusil utilise maintenant de l'énergie pour fonctionner. Surveille sa réser
 <<set $énergieEstInit = true>><<set $énergie = 1>>
 
 <<display "continuer">>
-<<set lMain.push("évolution 1 à 2", "la nuit")>>
-<<set lRencontre.push("mal au ventre")>>
+<<set $lMain.push("évolution 1 à 2", "la nuit")>>
+<<set $lRencontre.push("mal au ventre")>>
 
 
 
 :: évolution 1 à 2
-On évolue!! BUG_ME
+On évolue!! BUG_ME évolution 2
 <<set $typeFusil = 2>>
 YÉÉÉ!!!
 
 Ton fusil a évolué en <<display "get type fusil">>!!!
 
 <<display "continuer">>
-<<set lMain.push("moment intime")>>
+<<set $lMain.push("moment intime")>>
 
 
 :: un oiseau passe
@@ -254,7 +253,8 @@ Ton fusil a quand même le coeur brisé.
 <<display "continuer">>
 <<set $humeur = 0>>
 <<set $énergie = $énergie -2>>
-<<set lMain.push("visite orphelinat")>>
+<<set $lMain.push("visite orphelinat")>>
+<<set $lRencontre.splice($lRencontre.indexOf("accoucher"),1)>>
 
 
 :: mal au ventre
@@ -266,6 +266,7 @@ Ton fusil a mal au ventre. Tu le flatte un peu et ça fini par passer.
 	<<set $saleté++>>
 	<<set $amour++>>
 	<<set $lRencontre.push("accoucher")>>
+	<<set $lRencontre.splice($lRencontre.indexOf("mal au ventre"),1)>>
 <<endsilently>>
 
 :: coupe de cheveux
@@ -311,7 +312,7 @@ Avec votre nouveau BAZOOKA, vous pourrez maintenant détruire des choses qui sem
 Commandez dès maintenant votre BAZOOKA. Seulement 25 paiements faciles de 999.99$. Nos téléphonistes attendent votre appel. Appelez maintenant.»
 
 [[Wow!|pub bazooka 2]]
-<<set lMain.push("évolution 0 à 1")>>
+<<set $lMain.push("évolution 0 à 1")>>
 
 ::pub bazooka 2
 La publicité de bazooka était vraiment impressionnante. Tu veux maintenant ardamment avoir un bazooka. C'est même devenu ton but ultime dans la vie!
@@ -450,7 +451,7 @@ Test de faim...
 <<else>>
 	#...raté!
 	
-	Oh, tu n'as pas assez de munitions. Ton fusil a trop faim.
+	Oh, tu n'as pas assez de munitions. Ton fusil a faim!
 	
 	Il te faut 4 balles (Faim = 4/4) pour pouvoir aller chasser les perdrix.
 	
