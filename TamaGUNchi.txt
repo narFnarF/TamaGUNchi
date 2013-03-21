@@ -118,9 +118,13 @@ Stats:
 
 <<display "get amour">>		<<if $amourEstInit>> --> [[Calin|calin]]<<endif>>
 
+<<silently>>
 Debug:
-estomac=<<print $estomac+"">> 
-saleté=<<print $saleté+"">>
+$estomac=<<print $estomac+"">> 
+$saleté=<<print $saleté+"">>
+$lMain=<<print $lMain+"">>
+$lRencontre=<<print $lRencontre+"">>
+<<endsilently>>
 
 [[événement]]
 
@@ -300,7 +304,7 @@ C'est du bon travail! (Énergie-2, Humeur+2)
 
 
 :: malade
-Ton fusil a l'air un peu rouge et chaud. Tu donc prends sa température.
+Ton fusil a l'air un peu rouge et chaud. Tu prends donc sa température.
 
 Oh non! Il fait de la fièvre. Ton fusil est malade. C'est probablement à cause des cacas qui traînent ou du stress.
 
