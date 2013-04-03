@@ -9,7 +9,7 @@
 [[évolution 0 à 1]]
 [[mal au ventre]]
 [[accoucher]]
-
+[[fin temporaire]]
 
 
 
@@ -312,7 +312,7 @@ Avec votre nouveau BAZOOKA, vous pourrez maintenant détruire des choses qui sem
 Commandez dès maintenant votre BAZOOKA. Seulement 25 paiements faciles de 999.99$. Nos téléphonistes attendent votre appel. Appelez maintenant.»
 
 [[Wow!|pub bazooka 2]]
-<<set $lMain.push("évolution 0 à 1")>>
+
 
 ::pub bazooka 2
 La publicité de bazooka était vraiment impressionnante. Tu veux maintenant ardamment avoir un bazooka. C'est même devenu ton but ultime dans la vie!
@@ -446,7 +446,7 @@ Test de faim...
 	Tu fais cuire la perdrix. Ça te fait un bon souper. Malheureusement, ton fusil ne peut pas en manger. Il ne mange que des munitions, évidemment!
 	
 	<<display "continuer">>
-	
+	<<set $lMain.push("évolution 0 à 1")>>
 	Énergie-2
 <<else>>
 	#...raté!
@@ -466,3 +466,10 @@ Ton fusil visite son BBgun à l'orphelinat.
 Événement pas encore écrit. BUG_ME
 
 <<display "continuer">>
+<<set $lMain.push("fin temporaire")>>
+
+
+:: fin temporaire
+Ceci est la fin du prototype. Merci d'avoir joué.
+
+[[Crédits]]
