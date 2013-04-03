@@ -118,13 +118,11 @@ Stats:
 
 <<display "get amour">>		<<if $amourEstInit>> --> [[Calin|calin]]<<endif>>
 
-<<silently>>
 Debug:
 $estomac=<<print $estomac+"">> 
 $saleté=<<print $saleté+"">>
 $lMain=<<print $lMain+"">>
 $lRencontre=<<print $lRencontre+"">>
-<<endsilently>>
 
 [[événement]]
 
@@ -293,7 +291,7 @@ Tu as ramassé les cacas de ton fusil. Il est tout propre maintenant! :)
 <<set $saleté++>>
 
 :: Nettoyer rapidement
-Tu demandes à ton fusil de t'aider à ramasser.
+Tu demandes à ton fusil de t'aider à ramasser. Ça va plus vite, il est content de t'aider et ça ne fait pas de gâchis.
 
 C'est du bon travail! (Énergie-2, Humeur+2)
 
