@@ -46,7 +46,7 @@ Ton fusil utilise maintenant de l'énergie pour fonctionner. Surveille sa réser
 <<set $énergieEstInit = true>><<set $énergie = 1>>
 
 <<display "continuer">>
-<<set $lMain.push("évolution 1 à 2", "la nuit")>>
+<<set $lMain.push("évolution 1 à 2")>>
 <<set $lRencontre.push("mal au ventre")>>
 
 
