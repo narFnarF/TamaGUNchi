@@ -45,7 +45,8 @@ BUG_ME
 <<else>>
 Il n'y a rien à faire. Ton fusil s'ennuie un peu...
 <<set $humeur-->>
-[[Continuer|loop]]
+
+[[fin temporaire]]
 <<endif>>
 
 
