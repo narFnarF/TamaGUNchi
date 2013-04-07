@@ -16,7 +16,7 @@ TamaGUNchi a été créé par narF.
 
 Ceci est la version 0.1
 
-Ce jeu fonctionne sur le moteur Twine, Twee et TiddlyWiki.
+Ce jeu est propulsé par Twine, Twee et TiddlyWiki.
 
 Inclus des macros par Stormrose et Taz (merci!)
 
@@ -125,6 +125,7 @@ $lMain=<<print $lMain+"">>
 $lRencontre=<<print $lRencontre+"">>
 
 [[événement]]
+[[événement 2 dans un autre lieu]]
 
 
 [[Attendre un peu]]
@@ -140,6 +141,11 @@ $lRencontre=<<print $lRencontre+"">>
 	<<display "get main storyline">>
 <<endif>>
 
+
+:: événement 2 dans un autre lieu
+BUG_ME (Cette fonction n'est pas encore implémenté)
+
+[[Continuer|loop]]
 
 
 
