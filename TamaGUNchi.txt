@@ -124,8 +124,8 @@ $saleté=<<print $saleté+"">>
 $lMain=<<print $lMain+"">>
 $lRencontre=<<print $lRencontre+"">>
 
-[[événement]]
-[[événement 2 dans un autre lieu]]
+[[événement]] (<<print $lMain.length+"">>)
+[[événement 2 dans un autre lieu]] (0)
 
 
 [[Attendre un peu]]
@@ -186,7 +186,7 @@ Ton fusil mange des munitions.
 	<<set $amour = $amour+(4-$faim)>>
 	<<if $cacaEstInit>> <<set $estomac++>> <<endif>>
 <<endsilently>>
-<<if $faim lte 1 and $amourEstInit>>Astuce: Ton fusil te donner plus d'amour quand il a très faim et que tu lui donne à manger.<<endif>>
+<<if $faim lte 1 and $amourEstInit>>Astuce: Ton fusil te donne plus d'amour quand il a très faim et que tu lui donne à manger.<<endif>>
 
 <<display "continuer">>
 
