@@ -1,16 +1,11 @@
 :: test événement
-<<silently>>
-<<display "raccourci apprivoisé">>
-<<display "activer énergie">>
-<<set $caca = false>>
-<<set $malade = false>>
-<<endsilently>>
-
 [[évolution 0 à 1]]
 [[mal au ventre]]
 [[accoucher]]
 [[fin temporaire]]
-
+[[chasse aux perdrix]]
+[[attaque d'un méchant bandit]]
+[[film]]
 
 
 
@@ -36,30 +31,25 @@
 
 
 :: évolution 0 à 1
-On évolue!! BUG_ME évolution 1
-<<set $typeFusil = 1>>
-YÉÉÉ!!!
+Ton fusil a réussi un grand exploi. Il se met à évoluer!
+
+YÉÉÉ!!! <<set $typeFusil = 1>>
 
 Ton fusil a évolué en <<display "get type fusil">>!!!
 
-Ton fusil utilise maintenant de l'énergie pour fonctionner. Surveille sa réserve d'énergie! :)
+Ton fusil utilise maintenant de l'énergie pour fonctionner. Surveille sa réserve d'énergie! Si ça descend trop, faudra faire dodo! :)
 <<set $énergieEstInit = true>><<set $énergie = 1>>
 
 <<display "continuer">>
-<<set $lMain.push("évolution 1 à 2")>>
-<<set $lRencontre.push("mal au ventre")>>
+<<set $lMain.push("attaque d'un méchant bandit")>>
+<<set $lMain.push("mal au ventre")>>
 
 
 
 :: évolution 1 à 2
-On évolue!! BUG_ME évolution 2
 <<set $typeFusil = 2>>
-YÉÉÉ!!!
-
-Ton fusil a évolué en <<display "get type fusil">>!!!
-
-<<display "continuer">>
 <<set $lMain.push("moment intime")>>
+<<set $humeurEstInit = true>>
 
 
 :: un oiseau passe
@@ -203,6 +193,8 @@ Le débuté devient blême. Il se tâte mais... il n'a rien!
 
 Ton fusil se met à rire. Il leur a fait une blague en tirant une balle blanche!
 
+Tu n'as pas tué le député!
+
 Tout le monde rient de cette excellente blague. Même le député.
 
 <<display "continuer">>
@@ -254,7 +246,6 @@ Ton fusil a quand même le coeur brisé.
 <<set $humeur = 0>>
 <<set $énergie = $énergie -2>>
 <<set $lMain.push("visite orphelinat")>>
-<<set $lRencontre.splice($lRencontre.indexOf("accoucher"),1)>>
 
 
 :: mal au ventre
@@ -265,8 +256,7 @@ Ton fusil a mal au ventre. Tu le flatte un peu et ça fini par passer.
 	<<set $humeur-->>
 	<<set $saleté++>>
 	<<set $amour++>>
-	<<set $lRencontre.push("accoucher")>>
-	<<set $lRencontre.splice($lRencontre.indexOf("mal au ventre"),1)>>
+	<<set $lMain.push("accoucher")>>
 <<endsilently>>
 
 :: coupe de cheveux
@@ -441,13 +431,11 @@ Test de faim...
 	
 	Tu as réussi à tuer une perdrix!<<set $énergie = $énergie-2>>
 	
-	Ton fusil est content de son exploit (Humeur+1)<<set $humeur++>>
+	Ton fusil est content de son exploit <<if $humeurEstInit>>(Humeur+1)<<set $humeur++>><<endif>>
 	
 	Tu fais cuire la perdrix. Ça te fait un bon souper. Malheureusement, ton fusil ne peut pas en manger. Il ne mange que des munitions, évidemment!
 	
-	<<display "continuer">>
-	<<set $lMain.push("évolution 0 à 1")>>
-	Énergie-2
+	[[Continuer|évolution 0 à 1]]
 <<else>>
 	#...raté!
 	
@@ -473,3 +461,84 @@ Ton fusil visite son BBgun à l'orphelinat.
 Ceci est la fin du prototype. Merci d'avoir joué.
 
 [[Crédits]]
+
+
+:: attaque d'un méchant bandit
+Tu marches dans la rue avec ton fusil.
+
+Soudain, tu apperçois un méchant bandit en train de terroriser une vieille madame et lui voler son sac!
+
+Tu voudrais être un héros et sauver la vieille madame, mais le méchant bandit a un fusil lui aussi.
+
+Ça te prendrait un plus gros fusil...
+
+<<if $filmVisité>>
+	[[Oh! Un plus gros fusil?|attaque d'un méchant bandit 2]]
+<<else>>
+	...
+
+	Tu n'as rien pu faire. (humeur-3) <<set $humeur = $humeur-3>>
+
+	[[Continuer|loop]]
+	<<set $lMain.push("attaque d'un méchant bandit")>>
+<<endif>>
+
+
+
+
+:: attaque d'un méchant bandit 2
+Mais un instant!
+
+Le film que toi et ton fusil avez regardé l'autre soir... Peut-être que...
+
+Ton fusil pense à la même chose que toi.
+
+Ton fusil se concentre et...
+
+Test d'énergie...
+
+<<if $énergie-3 gte 0>>
+	#...réussit!
+	<<display "évolution 1 à 2">>
+	Ton fusil a évolué en <<display "get type fusil">>!
+	
+	Oh yeah! Pow! Pow! Pow! <<set $faim = $faim -3>>Les bandits n'ont qu'à bien se tenir!
+	
+	La vieille madame est sauvée. Elle te donne un bisou pour te remercier.
+	
+	Elle donne aussi un bisou à ton fusil. Rien de bizarre là-dedans.
+	
+	[[Continuer|loop]]
+<<else>>
+	#...raté!
+	
+	Il ne se passe rien. Zut!
+	
+	Ça t'aurait pris au moins 3 d'énergie.
+	
+	[[Continuer|loop]]
+	<<set $lMain.push("attaque d'un méchant bandit")>>
+<<endif>>
+<<set $énergie = $énergie -3>>
+
+
+
+:: film
+Tu t'installe pour écouter un film.
+
+Évidemment, tu prends ton fusil avec toi pour écouter le film.
+
+Le film? Évidemment, c'est un film d'action avec plein de fusils!
+
+Ton fusil est très impressionné par l'action du film. Le héros a plein de fusils pour faire ses actions héroïques. Ton fusil est impressionné par son arsenal.
+
+Le film est maintenant rendu à la scène avec la mitraillette (il y a toujours une scène avec une mitraillette dans les films d'action!). Ton fusil est particulièrement impressionné. Le héros du film arrive à tuer des centaines de bandits vraiment rapidement!
+
+Si seulement ton fusil pourrait être une mitraillette. Il pourrait ainsi te protéger contre les attaques des méchants bandits...
+
+<<set $énergie-->>Énergie-1 
+
+[[Continuer|loop]]
+
+<<set $filmVisité = true>>
+
