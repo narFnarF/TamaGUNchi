@@ -2,10 +2,10 @@
 [[Continuer|loop]]
 
 :: link caca
-[[Continuer caca|caca]]
+[[Continuer|caca]]
 
 :: link malade
-[[Continuer malade|malade]]
+[[Continuer|malade]]
 
 :: link événement random
-[[Continuer événement|get rencontre random]]
+[[Continuer|get rencontre random]]
