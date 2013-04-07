@@ -24,6 +24,8 @@ Hummm....
 
 On aurait dit qu'il allait se passer quelque chose, mais finalement non. Bizarre.
 
+BUG_ME
+
 [[Continuer|loop]]
 <<endif>>
 
@@ -68,7 +70,7 @@ Il n'y a rien à faire. Ton fusil s'ennuie un peu...
 <<endsilently>><<if $faimEstInit>>Faim: <<print $faim+"">>/4<<endif>>
 
 :: get caca
-<<if $cacaEstInit and $caca>>Ton fusil a fait caca (et il trempe dedans)  --> [[Nettoyer]] <<endif>>
+<<if $cacaEstInit and $caca>>Ton fusil a fait caca --> [[Nettoyer]] <<endif>>
 
 
 :: get malade
