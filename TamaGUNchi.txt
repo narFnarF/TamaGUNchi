@@ -39,7 +39,7 @@ En déballant le papier, tu espères vraiment que ce soit ce que tu penses.
 
 [[Déballer ton cadeau]]
 <<silently>>
-	//initialisation des tableaux pour les événements
+	initialisation des tableaux pour les événements
 	<<display "init rencontre random">>
 	<<display "init main storyline">>
 <<endsilently>>
