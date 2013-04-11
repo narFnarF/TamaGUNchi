@@ -117,15 +117,15 @@ Stats:
 <<display "get malade">>
 
 <<display "get amour">>		<<if $amourEstInit>> --> [[Calin|calin]]<<endif>>
-
+<<silently>>
 Debug:
 $estomac=<<print $estomac+"">> 
 $saleté=<<print $saleté+"">>
 $lMain=<<print $lMain+"">>
 $lRencontre=<<print $lRencontre+"">>
-
+<<endsilently>>
 [[événement]] (<<print $lMain.length+"">>)
-[[événement 2 dans un autre lieu]] (0)
+[[autre élénements (pas implémenté)|événement 2 dans un autre lieu]] (0)
 
 
 [[Attendre un peu]]
