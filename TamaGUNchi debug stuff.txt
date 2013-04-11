@@ -36,7 +36,8 @@ Activation du système d'humeur
 [[stats au minimum]]
 [[Reset stats à max-1]]
 [[stats au max]]
-[[caca malade]]
+[[caca]]
+[[malade]]
 
 
 ::stats au minimum
@@ -65,10 +66,6 @@ Stats remises à max-1
 <<set $énergie	= 3>>
 <<set $estomac	= 4>>
 <<set $saleté	= 4>>
-
-:: caca malade
-<<set $caca		= true>>
-<<set $malade	= true>>
 
 
 :: Flush tous les événements
