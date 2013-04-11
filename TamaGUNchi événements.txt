@@ -44,7 +44,7 @@ Ton fusil utilise maintenant de l'énergie pour fonctionner. Surveille sa réser
 <<set $énergieEstInit = true>><<set $énergie = 1>>
 
 <<display "continuer">>
-<<set $lMain.push("attaque d'un méchant bandit", "mal au ventre", "la nuit")>>
+<<set $lMain.push("attaque d'un méchant bandit", "mal au ventre", "la nuit", "concours de beauté")>>
 
 
 
@@ -471,19 +471,33 @@ Tu marches dans la rue avec ton fusil.
 
 Soudain, tu apperçois un méchant bandit en train de terroriser une vieille madame et lui voler son sac!
 
-Tu voudrais être un héros et sauver la vieille madame, mais le méchant bandit a un fusil lui aussi.
+<<if $typeFusil lte 2 or $typeFusil+"" eq "undefined">>
+	Tu voudrais être un héros et sauver la vieille madame, mais le méchant bandit a un fusil lui aussi.
 
-Ça te prendrait un plus gros fusil...
+	Ça te prendrait un plus gros fusil...
 
-<<if $filmVisité>>
-	[[Oh! Un plus gros fusil?|attaque d'un méchant bandit 2]]
+	<<if $filmVisité>>
+		[[Oh! Un plus gros fusil?|attaque d'un méchant bandit 2]]
+	<<else>>
+		...
+
+		Tu n'as rien pu faire. <<if $humeurEstInit>>(humeur-3) <<set $humeur = $humeur-3>> <<endif>>
+
+		[[Continuer|loop]]
+		<<set $lMain.push("attaque d'un méchant bandit", "film")>>
+	<<endif>>
 <<else>>
-	...
-
-	Tu n'as rien pu faire. <<if $humeurEstInit>>(humeur-3) <<set $humeur = $humeur-3>> <<endif>>
-
-	[[Continuer|loop]]
-	<<set $lMain.push("attaque d'un méchant bandit", "film")>>
+	Avec ton super fusil cool, tu butes tous les méchants vraiment rapidement. (faim-2)<<set $faim = $faim -2>>
+	
+	Ton fusil est vraiment rendu badass! Il est méga content! (humeur+2) <<set $humeur = $humeur+2>>
+	
+	<<display "continuer">>
+	<<set $lMain.splice($lMain.indexOf("film"),1)>>
+	<<set $lMain.splice($lMain.indexOf("film"),1)>>
+	<<set $lMain.splice($lMain.indexOf("film"),1)>>
+	<<set $lMain.splice($lMain.indexOf("film"),1)>>
+	<<set $lMain.splice($lMain.indexOf("film"),1)>>
+	<<set $lMain.splice($lMain.indexOf("film"),1)>>
 <<endif>>
 
 
@@ -545,3 +559,15 @@ Si seulement ton fusil pourrait être une mitraillette. Il pourrait ainsi te pro
 
 <<set $filmVisité = true>>
 
+
+
+:: concours de beauté
+Tu décides d'inscrire ton fusil à un concours de beauté.
+
+{événement pas encore fini}
+
+Tu gagnes!
+
+Amour +10!
+
+<<display "continuer">>
