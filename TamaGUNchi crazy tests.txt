@@ -1,11 +1,14 @@
 ::test
 
+[[test des silently pour la macro du gars]]
+[[test2]]
+
+:: test2
 
 
+[[test3]]
 
-:: crazy tests
-
-test
+:: test3
 
 
 

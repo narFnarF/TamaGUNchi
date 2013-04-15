@@ -3,22 +3,23 @@ TamaGUNchi
 
 ::StorySubtitle [this is not displayed]
 
+
 ::StoryAuthor
 Prototype démo - Critical Hit
 
 ::StoryMenu
-[[Crédits]]
+
 
 
 
 ::Crédits
-TamaGUNchi a été créé par narF.
+TamaGUNchi a été créé par narF et Sam.
 
 Ceci est la version 0.1
 
 Ce jeu est propulsé par Twine, Twee et TiddlyWiki.
 
-Inclus des macros par Stormrose et Taz (merci!)
+Inclus des macros par Emmanuel Turner (Stormrose) et Tassos Walker (Taz) (merci!)
 
 Remerciements
 Annie pour les coups de pieds au cul
@@ -72,9 +73,11 @@ Tu as hâte de l'essayer. Mais avant, il faut retirer la languette de sécurité
 </center></html>
 
 
-Un jeu de Francis "narF" Sheridan Paré
+Code & Design: 
+Francis "narF" Sheridan Paré
 
-{Autres crédits? ... Yes! Sam as joinded the party.}
+Visuel (du jeu final):
+Samuel "Eurêka" Boucher.
 
 [[Déballer le fusil de sa boîte|ouvrir la boîte]]
 
@@ -180,12 +183,11 @@ Awwww! C'est donc cute un fusil qui mange!
 
 :: Manger un peu
 Ton fusil mange des munitions.
-<<silently>>
-	<<set $faim++>>
-	<<set $énergie-->>
-	<<set $amour = $amour+(4-$faim)>>
-	<<if $cacaEstInit>> <<set $estomac++>> <<endif>>
-<<endsilently>>
+
+Faim+1<<set $faim++>>
+Énergie-1<<set $énergie-->>
+Amour+<<print 5-$faim>><<set $amour = $amour+(5-$faim)>>
+<<if $cacaEstInit>> <<set $estomac++>> <<endif>>	
 <<if $faim lte 1 and $amourEstInit>>Astuce: Ton fusil te donne plus d'amour quand il a très faim et que tu lui donne à manger.<<endif>>
 
 <<display "continuer">>
