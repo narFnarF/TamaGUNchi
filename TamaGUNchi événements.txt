@@ -278,15 +278,17 @@ Tu amènes ton fusil chez la coiffeuse. Elle demande:
 Ton fusil ressort de chez la coiffeuse avec un affro gigantesque. C'est certainement cool pour le look, mais tu perds de l'énergie à déplacer autant de cheveux!
 
 [[Continuer|loop]]
-<<set $humeur++>>
-<<set $énergie-->>
+
+Humeur+1<<set $humeur++>>
+Énergie-1<<set $énergie-->>
 
 :: rase motte
 Classique et efficace. Avec aussi peu de cheveux, on se sent tout légé!
 
 [[Continuer|loop]]
-<<set $énergie++>>
-<<set $faim-->>
+
+Énergie+1<<set $énergie++>>
+Faim-1<<set $faim-->>
 <<set $saleté-->>
 
 
@@ -400,7 +402,7 @@ Tu essayes de réveiller ton fusil pour qu'il vienne dormir dans ton lit.
 
 :: la nuit 2
 Test d'humeur et d'amour...
-<<if ($humeur gte 2) and ($amour gte 100)>>
+<<if ($humeur gte 2) and ($amour gte 75)>>
 	#... réussit!
 	
 	Ton fusil accepte de venir dormir dans ton lit. Tu le place sous ton oreiller.
@@ -412,7 +414,7 @@ Test d'humeur et d'amour...
 <<else>>
 	#... raté!
 	
-	Ton fusil n'a pas envie de se faire réveiller.
+	Ton fusil n'a pas envie de se faire réveiller. (Il te faut 75 amours et 2 énergies)
 	
 	Tu continues d'avoir peur et n'arrives plus à dormir de la nuit.
 	
