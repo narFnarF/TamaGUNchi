@@ -1,5 +1,6 @@
 TODO:
 - Événements:
+	- Après annonce de Bazooka, si tu choisi l'option de ne pas en parler, push() un événemement où ton fusil te demande pourquoi tu ne lui a rien dit.
 	- Flashback de jeunesse (déclanche stats d'humeur)
 	- Faire des événements random plus banals et centré sur les besoins du fusil
 	- s'habiller chic et participer à un concours de beauté
