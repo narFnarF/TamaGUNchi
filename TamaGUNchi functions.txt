@@ -24,6 +24,8 @@ Hummm....
 
 On aurait dit qu'il allait se passer quelque chose, mais finalement non. Bizarre.
 
+BUG_ME
+
 [[Continuer|loop]]
 <<endif>>
 

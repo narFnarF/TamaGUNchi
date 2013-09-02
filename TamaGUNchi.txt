@@ -3,6 +3,7 @@ TamaGUNchi
 
 ::StorySubtitle [this is not displayed]
 
+
 ::StoryAuthor
 Prototype démo - Critical Hit
 
@@ -18,7 +19,7 @@ Ceci est la version 0.1
 
 Ce jeu est propulsé par Twine, Twee et TiddlyWiki.
 
-Inclus des macros par Stormrose et Taz (merci!)
+Inclus des macros par Emmanuel Turner (Stormrose) et Tassos Walker (Taz) (merci!)
 
 Remerciements
 Annie pour les coups de pieds au cul
@@ -74,7 +75,7 @@ Tu as hâte de l'essayer. Mais avant, il faut retirer la languette de sécurité
 
 Un jeu de Francis "narF" Sheridan Paré
 
-{Autres crédits? ... Yes! Sam as joinded the party.}
+{Autres crédits?}
 
 [[Déballer le fusil de sa boîte|ouvrir la boîte]]
 
@@ -125,7 +126,7 @@ $lMain=<<print $lMain+"">>
 $lRencontre=<<print $lRencontre+"">>
 
 [[événement]] (<<print $lMain.length+"">>)
-[[événement 2 dans un autre lieu]] (0)
+[[autre élénements (pas implémenté)|événement 2 dans un autre lieu]] (0)
 
 
 [[Attendre un peu]]
@@ -180,12 +181,11 @@ Awwww! C'est donc cute un fusil qui mange!
 
 :: Manger un peu
 Ton fusil mange des munitions.
-<<silently>>
-	<<set $faim++>>
-	<<set $énergie-->>
-	<<set $amour = $amour+(4-$faim)>>
-	<<if $cacaEstInit>> <<set $estomac++>> <<endif>>
-<<endsilently>>
+
+Faim+1<<set $faim++>>
+Énergie-1<<set $énergie-->>
+Amour+<<print 5-$faim>><<set $amour = $amour+(5-$faim)>>
+<<if $cacaEstInit>> <<set $estomac++>> <<endif>>	
 <<if $faim lte 1 and $amourEstInit>>Astuce: Ton fusil te donne plus d'amour quand il a très faim et que tu lui donne à manger.<<endif>>
 
 <<display "continuer">>
